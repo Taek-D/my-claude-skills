@@ -1,0 +1,9 @@
+{
+  "name": "my-claude-skills",
+  "version": "1.0.0",
+  "description": "Custom Claude Code skills - Notion portfolio upload and more",
+  "author": {
+    "name": "Taek-D"
+  },
+  "license": "MIT"
+}
