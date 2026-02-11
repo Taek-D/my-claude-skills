@@ -1,7 +1,7 @@
 {
-  "name": "my-claude-skills",
+  "name": "notion-project-upload",
   "version": "1.0.0",
-  "description": "Custom Claude Code skills - Notion portfolio upload and more",
+  "description": "Upload projects to Notion with optimized portfolio templates. Automatically analyzes project type and applies recruiter-friendly templates.",
   "author": {
     "name": "Taek-D"
   },
