@@ -7,6 +7,8 @@ description: Upload projects to Notion with optimized portfolio templates. Autom
 
 Upload projects to Notion portfolio database with optimized, recruiter-friendly templates.
 
+**Version**: 1.1.0
+
 ## Database Configuration
 
 - **Data Source ID**: `ce6722a9-00b2-4d0e-8eda-190f4ce97cb6`
@@ -27,9 +29,9 @@ Analyze content and classify into one type:
 
 | Type | Triggers | Template Focus |
 |------|----------|---------------|
-| **1. Business Impact** | 매출, ROI, KPI, conversion, A/B 테스트 | Before/After tables, metrics in **bold** |
-| **2. Exploratory Analysis** | 분석, EDA, 인사이트, 상관관계, 패턴 | Finding-oriented, charts/tables, stats |
-| **3. Technical Implementation** | 챗봇, 크롤러, 자동화, API, 시스템, 개발 | Code blocks (<=10 lines), Mermaid diagrams |
+| **1. Business Impact** | 매출, ROI, KPI, conversion, A/B 테스트 | Before/After tables, metrics in **bold**, Dataset section |
+| **2. Exploratory Analysis** | 분석, EDA, 인사이트, 상관관계, 패턴 | Finding-oriented, charts/tables, stats, Dataset section |
+| **3. Technical Implementation** | 챗봇, 크롤러, 자동화, API, 시스템, 개발 | Code blocks (<=10 lines), Mermaid diagrams, Dataset (optional) |
 | **4. Learning Project** | Kaggle, 학습, 연습, 튜토리얼, 강의 | Learning-focused, ranking/score if available |
 
 **Default**: If no clear match, check for quantitative metrics -> Type 1, otherwise -> Type 3.
@@ -45,6 +47,7 @@ For full templates, read [references/templates.md](references/templates.md).
 - **Code blocks**: Core logic only, <=10 lines with comments
 - **Mermaid diagrams**: 3-5 steps, simplified
 - **Quantitative metrics**: Always **bold**
+- **Dataset section**: Include for data-based projects (Type 1/2 required, Type 3 optional)
 
 ## Properties (14 Fields)
 
@@ -84,17 +87,24 @@ Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, PostgreSQL, 
 ## Quality Checklist
 
 Before uploading, verify:
-- Section titles are emoji + English
-- Toggle blocks minimized
-- Code blocks <= 10 lines
-- Quantitative metrics in **bold**
-- Before/After table present (Type 1 only)
-- All 14 properties filled
-- Date in YYYY.MM.DD format
+- ✅ Section titles are emoji + English
+- ✅ Toggle blocks minimized
+- ✅ Code blocks <= 10 lines
+- ✅ Quantitative metrics in **bold**
+- ✅ Before/After table present (Type 1 only)
+- ✅ Dataset section present (Type 1/2 required, Type 3 optional)
+- ✅ All 14 properties filled
+- ✅ Date in YYYY.MM.DD format
+
+## Version History
+
+- **v1.1.0** (2026.02.11): Added Dataset section to Type 1/2/3 templates for improved portfolio credibility
+- **v1.0.0** (2026.02.10): Initial release
 
 ## Notes
 
 - Templates optimized for **recruiter readability** (2-3 min scan time)
 - Follow **F-Pattern** visual hierarchy (성과 우선, Scannable)
+- **Dataset transparency** builds trust with recruiters (v1.1+)
 - Don't force fit -- if metrics don't exist, use alternatives
 - Be honest -- 없는 걸 억지로 만들지 않기
