@@ -1,13 +1,46 @@
 ---
 name: notion-project-upload
-description: Upload projects to Notion with optimized portfolio templates. Automatically analyzes project type (business/exploratory/technical/learning) and applies the appropriate template with emoji+English sections, minimal toggles, and hybrid bullet formatting. Handles 14 property fields including Problem/Solution/Impact/Learning, tech stack tagging, glow colors, and auto-updated dates. Use when user asks to upload a project to Notion, update a Notion portfolio entry, or create a recruiter-friendly project page. Triggers include "노션에 업로드", "노션 업로드", "포트폴리오 업로드", "프로젝트 업로드", "notion upload", "portfolio upload", "리뉴얼", "renewal".
+description: Upload or update projects in Notion with optimized portfolio templates. Automatically analyzes project type (business/exploratory/technical/learning) and applies the appropriate template with emoji+English sections, minimal toggles, and hybrid bullet formatting. Handles 14 property fields including Problem/Solution/Impact/Learning, tech stack tagging, glow colors, and auto-updated dates. Use when user asks to upload, update, modify, or renew a project in Notion. Triggers include "노션에 업로드", "노션 업로드", "포트폴리오 업로드", "프로젝트 업로드", "업데이트", "수정", "갱신", "리뉴얼", "notion upload", "portfolio upload", "update", "modify", "edit", "renewal".
 ---
 
 # Notion Project Upload
 
-Upload projects to Notion portfolio database with optimized, recruiter-friendly templates.
+Upload or update projects in Notion portfolio database with optimized, recruiter-friendly templates.
 
-**Version**: 1.2.0
+**Version**: 1.3.2
+
+## What's New in v1.3.2
+
+**3-Type Structure** - Simplified portfolio structure by removing Type 3 (Technical Implementation):
+- **Removed**: Type 3 (Technical Implementation) - backend/DevOps focused, not DA-appropriate
+- **Retained**: Type 1 (Business Impact), Type 2 (Exploratory Analysis), Type 4 (Learning)
+- **Rationale**: Visualization and automation are naturally integrated into all project types, avoiding redundancy
+
+Each project now includes analysis + visualization + (optional) automation as needed, without forcing artificial categorization.
+
+Previous versions:
+- v1.3.1: Process Flow Integration for all 4 types
+- v1.3.0: Enhanced templates with Dataset, Collaboration sections
+
+## Usage
+
+### Creating New Projects
+- "노션에 업로드해줘"
+- "프로젝트 포트폴리오에 추가"
+- "Upload this project to Notion"
+
+### Updating Existing Projects
+- "CohortIQ 프로젝트 업데이트해줘"
+- "이 프로젝트 노션에서 수정해줘"
+- "Update my RAG chatbot project"
+- "프로젝트 리뉴얼해줘"
+
+### Workflow for Updates
+1. Fetch existing project from Notion DB
+2. Analyze requested changes
+3. Apply v1.2.0 template improvements
+4. Update modified properties
+5. Upload changes to Notion
 
 ## Database Configuration
 
@@ -16,12 +49,22 @@ Upload projects to Notion portfolio database with optimized, recruiter-friendly 
 
 ## Workflow
 
+### For New Projects
 1. **Analyze** project content and detect type
 2. **Select** template from [references/templates.md](references/templates.md)
 3. **Generate** markdown content following template
 4. **Populate** all 14 properties
 5. **Quality check** before upload
-6. **Upload** to Notion DB
+6. **Create** new page in Notion DB
+
+### For Updates/Renewals
+1. **Fetch** existing project from Notion DB (by title or ID)
+2. **Analyze** what needs updating (content, properties, or both)
+3. **Apply** v1.2.0 template improvements if not already applied
+4. **Merge** new content with existing content
+5. **Update** modified properties (including 업데이트 날짜)
+6. **Quality check** updated content
+7. **Update** page in Notion DB
 
 ## Project Type Detection
 
@@ -31,23 +74,24 @@ Analyze content and classify into one type:
 |------|----------|---------------|
 | **1. Business Impact** | 매출, ROI, KPI, conversion, A/B 테스트 | Before/After tables, metrics in **bold**, Dataset, Collaboration & Deployment |
 | **2. Exploratory Analysis** | 분석, EDA, 인사이트, 상관관계, 패턴 | Finding-oriented, Dataset, Statistical Validation, charts/tables |
-| **3. Technical Implementation** | 챗봇, 크롤러, 자동화, API, 시스템, 개발 | Code blocks (15-20 lines), Mermaid diagrams, Deployment |
 | **4. Learning Project** | Kaggle, 학습, 연습, 튜토리얼, 강의 | Learning-focused, ranking/score, reflection |
 
-**Default**: If no clear match, check for quantitative metrics -> Type 1, otherwise -> Type 3.
+**Default**: If no clear match, check for quantitative metrics -> Type 1, otherwise -> Type 2.
 
 For full templates, read [references/templates.md](references/templates.md).
 
 ## Design Rules
 
 - **Section titles**: Emoji + English (e.g., `🎯 Project Goal`)
+- **Section order**: Performance/Findings first → Dataset → Key Takeaways → Collaboration → Technical/Analysis details → Links
+- **F-Pattern optimization**: Critical content (achievements, learning, teamwork) in top 50% for recruiter scanning
 - **Toggle blocks**: Minimize. Show goals/achievements/core code. Toggle only for 100+ line code or supplementary content
 - **Bullets**: Hybrid -- bullets for lists/goals/metrics, paragraphs for background/reflection, tables for numbers/comparisons (preferred)
 - **Emojis**: Section headings only, minimize in body
 - **Code blocks**: Core logic, 15-20 lines with comments (increased from 10 lines)
 - **Mermaid diagrams**: 5-7 steps OK, focus on core flow
 - **Quantitative metrics**: Always **bold**
-- **Dataset section**: Include for data-based projects (Type 1/2 required, Type 3 optional)
+- **Dataset section**: Include for data-based projects (Type 1/2 required, Type 4 optional)
 - **Collaboration**: Show stakeholder interaction, communication methods (Type 1/2/3)
 - **Statistical rigor**: Include hypothesis, p-values, effect size (Type 2)
 - **Business context**: Always explain "why this matters" (All types)
@@ -92,19 +136,32 @@ Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, PostgreSQL, 
 Before uploading, verify:
 
 **Structure & Design**
+- ✅ Performance Overview table positioned at top (30-second scan)
+- ✅ Process Flow with 6 steps present (Type-specific: Solution/Analysis/Optimization/Learning)
 - ✅ Section titles are emoji + English
+- ✅ Section order optimized: Performance/Findings → Process Flow → Dataset → Key Takeaways → Collaboration → Details
+- ✅ Key Takeaways in top 50% (after Dataset, before technical details)
+- ✅ Collaboration section present and positioned early (Type 1/2/3)
 - ✅ Toggle blocks minimized
 - ✅ Code blocks 15-20 lines (not 10)
 - ✅ Quantitative metrics in **bold**
-- ✅ Mermaid diagrams clear (5-7 steps OK)
+- ✅ Mermaid diagrams included (1+ diagram, see [templates.md Mermaid Guide](references/templates.md#mermaid-diagram-guide))
+- ✅ Diagram type matches project (Flowchart/Sequence/Graph/Gantt - see guide for recommendations)
+- ✅ Before/After architecture visualized with color coding (Type 1)
 
 **Content Completeness**
 - ✅ Before/After table present (Type 1 only)
-- ✅ Dataset section present (Type 1/2 required, Type 3 optional)
+- ✅ Dataset section present (Type 1/2 required, Type 4 optional)
 - ✅ Statistical Validation present (Type 2 only: hypothesis, p-value, effect size)
-- ✅ Collaboration & Impact section (Type 1/2/3)
-- ✅ Deployment & Usage section (Type 1/3 if applicable)
+- ✅ Collaboration & Impact section (Type 1/2)
+- ✅ Deployment & Usage section (Type 1 if applicable)
 - ✅ Business context explained ("why this matters")
+- ✅ **Impact quantified** - Specific numbers with % or dollar amounts (use formulas from guide)
+- ✅ **Differentiation**: Not template-y (different emphasis, style, or metrics per project)
+- ✅ **Personalization**: Specific details, not generic content
+- ✅ **Extra/Extra-Label populated** - Project-specific details with proper format (see guide for templates)
+- ✅ Extra-Label matches project type (A/B Test Design, Tech Spec, Hypothesis Testing, Learning Journey, etc.)
+- ✅ Extra uses `**제목** — 설명` format with quantitative data
 
 **Properties**
 - ✅ All 14 properties filled
