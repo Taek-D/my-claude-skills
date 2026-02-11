@@ -34,6 +34,27 @@
 
 ---
 
+## 📁 Dataset
+
+**Data Source**
+
+데이터 출처 및 획득 방법 (예: Kaggle, 회사 내부 데이터, 공공 데이터 등)
+
+**Data Scale**
+
+| 항목 | 내용 |
+|------|------|
+| 총 건수 | X건 |
+| 분석 기간 | YYYY.MM ~ YYYY.MM |
+| 주요 변수 | 변수명 나열 |
+
+**Data Characteristics**
+
+• 데이터 특성 설명 (선택사항)
+• 전처리 과정 (결측치, 이상치 처리 등)
+
+---
+
 ## 🎯 Problem & Solution
 
 | Challenge | Solution | Tech Stack |
@@ -113,6 +134,33 @@ def key_function():
 
 ---
 
+## 📁 Dataset
+
+**Data Source**
+
+데이터 출처 및 획득 방법
+
+**Data Scale**
+
+| 항목 | 내용 |
+|------|------|
+| 총 데이터 건수 | X건 |
+| 변수 개수 | X개 |
+| 수집 기간 | YYYY.MM ~ YYYY.MM |
+
+**Variables**
+
+• 주요 변수 구성 설명
+• 타겟 변수 (있는 경우)
+
+**Data Preprocessing**
+
+• 결측치 처리 방법
+• 이상치 제거 기준
+• 파생 변수 생성 (있는 경우)
+
+---
+
 ## 🎯 Analysis Approach
 
 **분석 목적**
@@ -180,6 +228,30 @@ sns.heatmap(correlation_matrix, annot=True)
 • 기능 1
 • 기능 2
 • 기능 3
+
+---
+
+## 📁 Dataset (Optional)
+
+**Data Source**
+
+데이터 출처 및 생성 방법 (예: 자체 생성, API 수집, 크롤링 등)
+
+**Data Scale**
+
+| 항목 | 내용 |
+|------|------|
+| 총 건수 | X건 |
+| 데이터 형식 | JSON, CSV 등 |
+
+**Variables**
+
+주요 변수 구성
+
+**Technical Characteristics**
+
+• 실시간/배치 처리 방식
+• 데이터 검증 과정
 
 ---
 
