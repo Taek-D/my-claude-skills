@@ -5,5 +5,13 @@
   "author": {
     "name": "Taek-D"
   },
-  "license": "MIT"
+  "repository": "https://github.com/Taek-D/my-claude-skills",
+  "license": "MIT",
+  "keywords": [
+    "notion",
+    "portfolio",
+    "upload",
+    "project",
+    "template"
+  ]
 }

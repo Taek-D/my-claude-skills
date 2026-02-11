@@ -1,23 +1,31 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "my-claude-skills",
+  "version": "1.0.0",
+  "description": "Custom Claude Code skills",
   "owner": {
     "name": "Taek-D"
-  },
-  "metadata": {
-    "description": "Custom Claude Code skills",
-    "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "notion-project-upload",
-      "description": "Upload projects to Notion with optimized portfolio templates",
+      "description": "Upload projects to Notion with optimized portfolio templates. Automatically analyzes project type and applies recruiter-friendly templates with emoji+English sections.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Taek-D"
+      },
+      "repository": "https://github.com/Taek-D/my-claude-skills",
       "source": {
         "source": "url",
         "url": "https://github.com/Taek-D/my-claude-skills.git"
       },
-      "strict": false,
-      "skills": [
-        "./skills/notion-project-upload"
+      "category": "productivity",
+      "keywords": [
+        "notion",
+        "portfolio",
+        "upload",
+        "project",
+        "template"
       ]
     }
   ]
