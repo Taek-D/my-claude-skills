@@ -7,7 +7,7 @@ description: Upload projects to Notion with optimized portfolio templates. Autom
 
 Upload projects to Notion portfolio database with optimized, recruiter-friendly templates.
 
-**Version**: 1.1.0
+**Version**: 1.2.0
 
 ## Database Configuration
 
@@ -29,10 +29,10 @@ Analyze content and classify into one type:
 
 | Type | Triggers | Template Focus |
 |------|----------|---------------|
-| **1. Business Impact** | 매출, ROI, KPI, conversion, A/B 테스트 | Before/After tables, metrics in **bold**, Dataset section |
-| **2. Exploratory Analysis** | 분석, EDA, 인사이트, 상관관계, 패턴 | Finding-oriented, charts/tables, stats, Dataset section |
-| **3. Technical Implementation** | 챗봇, 크롤러, 자동화, API, 시스템, 개발 | Code blocks (<=10 lines), Mermaid diagrams, Dataset (optional) |
-| **4. Learning Project** | Kaggle, 학습, 연습, 튜토리얼, 강의 | Learning-focused, ranking/score if available |
+| **1. Business Impact** | 매출, ROI, KPI, conversion, A/B 테스트 | Before/After tables, metrics in **bold**, Dataset, Collaboration & Deployment |
+| **2. Exploratory Analysis** | 분석, EDA, 인사이트, 상관관계, 패턴 | Finding-oriented, Dataset, Statistical Validation, charts/tables |
+| **3. Technical Implementation** | 챗봇, 크롤러, 자동화, API, 시스템, 개발 | Code blocks (15-20 lines), Mermaid diagrams, Deployment |
+| **4. Learning Project** | Kaggle, 학습, 연습, 튜토리얼, 강의 | Learning-focused, ranking/score, reflection |
 
 **Default**: If no clear match, check for quantitative metrics -> Type 1, otherwise -> Type 3.
 
@@ -44,17 +44,20 @@ For full templates, read [references/templates.md](references/templates.md).
 - **Toggle blocks**: Minimize. Show goals/achievements/core code. Toggle only for 100+ line code or supplementary content
 - **Bullets**: Hybrid -- bullets for lists/goals/metrics, paragraphs for background/reflection, tables for numbers/comparisons (preferred)
 - **Emojis**: Section headings only, minimize in body
-- **Code blocks**: Core logic only, <=10 lines with comments
-- **Mermaid diagrams**: 3-5 steps, simplified
+- **Code blocks**: Core logic, 15-20 lines with comments (increased from 10 lines)
+- **Mermaid diagrams**: 5-7 steps OK, focus on core flow
 - **Quantitative metrics**: Always **bold**
 - **Dataset section**: Include for data-based projects (Type 1/2 required, Type 3 optional)
+- **Collaboration**: Show stakeholder interaction, communication methods (Type 1/2/3)
+- **Statistical rigor**: Include hypothesis, p-values, effect size (Type 2)
+- **Business context**: Always explain "why this matters" (All types)
 
 ## Properties (14 Fields)
 
 ### Core Analysis
 | Property | Description |
 |----------|-------------|
-| **Problem** | 문제 정의 (2-3문장) |
+| **Problem** | 문제 정의 (2-3문장, 비즈니스 맥락 포함) |
 | **Solution** | 해결 방법 (번호 매기기) |
 | **Impact** | 성과 (정량/정성) |
 | **Learning** | 학습 내용 및 회고 |
@@ -72,7 +75,7 @@ For full templates, read [references/templates.md](references/templates.md).
 ### Extra Fields
 | Property | Format |
 |----------|--------|
-| **Extra-Label** | 섹션 제목 (e.g., "A/B TEST DESIGN", "TECH SPEC") |
+| **Extra-Label** | 섹션 제목 (e.g., "A/B TEST DESIGN", "TECH SPEC", "STATISTICAL TEST") |
 | **Extra** | **제목** -- 설명 형식 (마크다운 볼드) |
 
 ### Auto-Generated
@@ -87,17 +90,44 @@ Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, PostgreSQL, 
 ## Quality Checklist
 
 Before uploading, verify:
+
+**Structure & Design**
 - ✅ Section titles are emoji + English
 - ✅ Toggle blocks minimized
-- ✅ Code blocks <= 10 lines
+- ✅ Code blocks 15-20 lines (not 10)
 - ✅ Quantitative metrics in **bold**
+- ✅ Mermaid diagrams clear (5-7 steps OK)
+
+**Content Completeness**
 - ✅ Before/After table present (Type 1 only)
 - ✅ Dataset section present (Type 1/2 required, Type 3 optional)
+- ✅ Statistical Validation present (Type 2 only: hypothesis, p-value, effect size)
+- ✅ Collaboration & Impact section (Type 1/2/3)
+- ✅ Deployment & Usage section (Type 1/3 if applicable)
+- ✅ Business context explained ("why this matters")
+
+**Properties**
 - ✅ All 14 properties filled
 - ✅ Date in YYYY.MM.DD format
+- ✅ Problem includes business context
+- ✅ Impact is quantitative + qualitative
+- ✅ Learning is specific and actionable
+
+**Differentiation**
+- ✅ Not generic template content
+- ✅ Project personality visible
+- ✅ Real-world usage/feedback included (if applicable)
 
 ## Version History
 
+- **v1.2.0** (2026.02.11): Major improvements based on recruiter & expert feedback
+  - Added Collaboration & Impact section (Type 1/2/3)
+  - Added Statistical Validation section (Type 2)
+  - Added Deployment & Usage section (Type 1/3)
+  - Removed duplicate "데이터 특성" in Type 2
+  - Increased code block limit: 10 → 15-20 lines
+  - Enhanced business context requirement
+  - Updated Quality Checklist
 - **v1.1.0** (2026.02.11): Added Dataset section to Type 1/2/3 templates for improved portfolio credibility
 - **v1.0.0** (2026.02.10): Initial release
 
@@ -106,5 +136,8 @@ Before uploading, verify:
 - Templates optimized for **recruiter readability** (2-3 min scan time)
 - Follow **F-Pattern** visual hierarchy (성과 우선, Scannable)
 - **Dataset transparency** builds trust with recruiters (v1.1+)
+- **Collaboration evidence** shows teamwork ability (v1.2+)
+- **Statistical rigor** demonstrates analytical depth (v1.2+)
 - Don't force fit -- if metrics don't exist, use alternatives
 - Be honest -- 없는 걸 억지로 만들지 않기
+- Show personality -- not just template filling

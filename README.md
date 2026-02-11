@@ -6,14 +6,17 @@ Custom Claude Code skills for personal productivity and automation.
 
 ### notion-project-upload
 
-**Version**: 1.1.0  
+**Version**: 1.2.0  
 **Category**: Productivity
 
 Upload projects to Notion with optimized portfolio templates. Automatically analyzes project type (business/exploratory/technical/learning) and applies recruiter-friendly templates.
 
 **Features**:
 - 🎯 Auto-detects project type (4 types)
-- 📊 Dataset section for data transparency (v1.1+)
+- 👥 Collaboration & Impact section (v1.2+)
+- 📊 Statistical Validation for analysis projects (v1.2+)
+- 🚀 Deployment & Usage tracking (v1.2+)
+- 📁 Dataset section for data transparency (v1.1+)
 - 🎨 Emoji + English sections
 - 📝 14 property fields auto-populated
 - 🏷️ Tech stack tagging
@@ -21,10 +24,18 @@ Upload projects to Notion with optimized portfolio templates. Automatically anal
 - 📅 Auto date updates
 
 **Templates**:
-- Type 1: Business Impact (Before/After, ROI, metrics)
-- Type 2: Exploratory Analysis (EDA, findings, insights)
-- Type 3: Technical Implementation (Code, architecture, optimization)
-- Type 4: Learning Project (Kaggle, courses, practice)
+- Type 1: Business Impact (Before/After, ROI, metrics, collaboration, deployment)
+- Type 2: Exploratory Analysis (EDA, findings, statistical validation, insights)
+- Type 3: Technical Implementation (Code 15-20 lines, architecture, deployment)
+- Type 4: Learning Project (Kaggle, courses, practice, reflection)
+
+**What's New in v1.2**:
+- ✨ **Collaboration & Impact** - Show teamwork, stakeholder management
+- 📊 **Statistical Validation** - Hypothesis testing, p-values, effect sizes
+- 🚀 **Deployment & Usage** - Production status, real-world impact
+- 💻 **Better Code Blocks** - 15-20 lines (up from 10)
+- 🎯 **Business Context** - Always explain "why this matters"
+- 🔍 **Differentiation** - Less template-y, more personality
 
 ## Installation
 
@@ -71,6 +82,30 @@ Database ID: ce6722a9-00b2-4d0e-8eda-190f4ce97cb6
 
 ## Version History
 
+### v1.2.0 (2026.02.11) - Major Improvements
+- ✨ Added **Collaboration & Impact** section (Type 1/2/3)
+  - Show stakeholder interaction
+  - Communication methods
+  - Real-world usage and feedback
+- 📊 Added **Statistical Validation** section (Type 2)
+  - Hypothesis testing (H0/H1)
+  - p-values, effect sizes
+  - Confidence intervals
+- 🚀 Added **Deployment & Usage** section (Type 1/3)
+  - Production status
+  - Real usage metrics
+  - User feedback
+- 💻 Increased code block limit: 10 → 15-20 lines
+- 🎯 Enhanced business context requirement
+- 🔍 Removed duplicate "데이터 특성" in Type 2
+- 📋 Updated Quality Checklist
+
+**Why v1.2?** Based on feedback from recruiters and data professionals:
+- Show teamwork ability (not just solo projects)
+- Demonstrate statistical rigor (not just charts)
+- Prove real-world impact (not just toy projects)
+- Less template-y, more personality
+
 ### v1.1.0 (2026.02.11)
 - ✨ Added Dataset section to Type 1/2/3 templates
 - 📊 Improved portfolio credibility with data transparency
@@ -84,6 +119,13 @@ Database ID: ce6722a9-00b2-4d0e-8eda-190f4ce97cb6
 - Emoji + English sections
 - Tech stack tagging
 - Glow color selection
+
+## Roadmap
+
+**v1.3.0 (Planned)**
+- [ ] Multi-language support (English templates)
+- [ ] Custom template creation
+- [ ] Batch upload support
 
 ## Contributing
 

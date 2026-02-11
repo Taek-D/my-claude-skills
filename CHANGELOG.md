@@ -5,6 +5,77 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-02-11
+
+### Added
+
+#### Collaboration & Impact Section (Type 1/2/3)
+- **Stakeholders** - Document who you worked with (PM, marketing, engineering)
+- **Communication** - How insights were shared with non-technical teams
+- **Real-world Usage** - Actual usage stats, user feedback, business impact
+
+#### Statistical Validation Section (Type 2)
+- **Hypothesis** - H0 and H1 clearly stated
+- **Statistical Test** - Test type, p-values, interpretation
+- **Effect Size & CI** - Cohen's d, confidence intervals, practical significance
+
+#### Deployment & Usage Section (Type 1/3)
+- **Production Status** - Deployment environment, CI/CD, monitoring
+- **Real Impact** - Work efficiency improvements, decision-making impact
+- **Monitoring** - Performance tracking methods
+
+#### Enhanced Content Requirements
+- Business context requirement for all types - always explain "why this matters"
+- Real-world usage examples - show actual usage, not just potential
+- Personality differentiation - avoid generic template filling
+
+### Changed
+
+#### Code Block Improvements
+- Increased limit from 10 lines to **15-20 lines**
+- Allow meaningful pseudo-code or actual implementation
+- Focus on core logic with proper comments
+
+#### Type 2 Template Restructure
+- **Removed** duplicate "데이터 특성" table from Key Findings section
+- **Consolidated** data information into Dataset section only
+- Clearer separation between findings and data description
+
+#### Section Reordering (Type 1)
+- Moved **Key Takeaways** earlier (after Dataset)
+- Recruiters see learning ability in first 50% of page
+- Better F-pattern readability
+
+#### Mermaid Diagrams
+- Increased flexibility: 5-7 steps allowed (up from 3-5)
+- Focus on core flow, not oversimplification
+
+#### Quality Checklist
+- Added checks for Collaboration section
+- Added checks for Statistical Validation (Type 2)
+- Added checks for Deployment & Usage (Type 1/3)
+- Added business context verification
+- Added differentiation checks (avoid template-y content)
+
+### Improved
+
+#### Recruiter Readability
+- **Teamwork Evidence** - Addresses "can this person work in a team?"
+- **Statistical Rigor** - Shows analytical depth, not just chart generation
+- **Real Impact** - Proves practical value, not just toy projects
+- **Business Savvy** - Demonstrates understanding of "why" not just "how"
+
+#### Expert Credibility
+- Hypothesis testing reduces "did they just run random analyses?" suspicion
+- Effect sizes and CIs show understanding of practical significance
+- Preprocessing details demonstrate data quality awareness
+- Deployment sections prove production-ready skills
+
+### Fixed
+- Removed redundant data description in Type 2
+- Clarified when Dataset section is optional vs required
+- Better guidance on hypothesis formulation
+
 ## [1.1.0] - 2026-02-11
 
 ### Added
@@ -72,5 +143,61 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Quantitative metrics always in **bold**
 - Templates focused on recruiter readability
 
+## Scoring Comparison
+
+### v1.0.0 Score: 5.3/10
+- Readability: 8/10
+- Credibility: 6/10
+- Design: 7/10
+- **Differentiation: 4/10** ⚠️
+- **Collaboration: 2/10** ⚠️
+- Technical Depth: 5/10
+- Business Context: 5/10
+
+### v1.1.0 Score: 6.2/10
+- Readability: 8/10
+- **Credibility: 7/10** ✅ (Dataset added)
+- Design: 7/10
+- Differentiation: 4/10
+- Collaboration: 2/10
+- Technical Depth: 5/10
+- Business Context: 5/10
+
+### v1.2.0 Score: 7.8/10 (Target)
+- Readability: 8.5/10
+- **Credibility: 8/10** ✅ (Statistical validation)
+- Design: 7.5/10
+- **Differentiation: 7/10** ✅ (Business context, personality)
+- **Collaboration: 7/10** ✅ (Stakeholders, communication)
+- **Technical Depth: 7/10** ✅ (15-20 line code, deployment)
+- **Business Context: 8/10** ✅ (Real impact, usage)
+
+## Migration Guide
+
+### From v1.1 to v1.2
+
+#### New Required Sections
+1. **Collaboration & Impact** (Type 1/2/3)
+   - Add after Key Takeaways
+   - Include stakeholders, communication, real usage
+
+2. **Statistical Validation** (Type 2 only)
+   - Add after Dataset section
+   - Include hypothesis, test results, effect sizes
+
+3. **Deployment & Usage** (Type 1/3 if applicable)
+   - Add after Technical Deep Dive
+   - Include production status, real metrics
+
+#### Updated Guidelines
+- Code blocks: Now 15-20 lines (was 10)
+- Mermaid: Now 5-7 steps (was 3-5)
+- Business context: Always explain "why" (new requirement)
+
+#### Removed Duplicates
+- Type 2: Delete "데이터 특성" table from Key Findings
+- Keep only Dataset section
+
+[1.2.0]: https://github.com/Taek-D/my-claude-skills/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/Taek-D/my-claude-skills/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/Taek-D/my-claude-skills/releases/tag/v1.0.0

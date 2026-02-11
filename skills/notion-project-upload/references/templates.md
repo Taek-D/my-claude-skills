@@ -1,5 +1,7 @@
 # Project Type Templates
 
+**Version**: 1.2.0
+
 ## Table of Contents
 - [Type 1: Business Impact](#type-1-business-impact)
 - [Type 2: Exploratory Analysis](#type-2-exploratory-analysis)
@@ -30,7 +32,7 @@
 **Business Impact**
 
 • **정량 성과** — 구체적 수치와 근거
-• **정성 성과** — 비즈니스 효과
+• **정성 성과** — 비즈니스 효과, 사용자 피드백
 
 ---
 
@@ -38,7 +40,7 @@
 
 **Data Source**
 
-데이터 출처 및 획득 방법 (예: Kaggle, 회사 내부 데이터, 공공 데이터 등)
+데이터 출처 및 획득 방법 (예: 회사 내부 데이터, Google Analytics, 공공 데이터 등)
 
 **Data Scale**
 
@@ -46,21 +48,60 @@
 |------|------|
 | 총 건수 | X건 |
 | 분석 기간 | YYYY.MM ~ YYYY.MM |
-| 주요 변수 | 변수명 나열 |
+| 주요 변수 | 변수명 나열 (5-10개) |
 
-**Data Characteristics**
+**Data Quality & Preprocessing**
 
-• 데이터 특성 설명 (선택사항)
-• 전처리 과정 (결측치, 이상치 처리 등)
+• 결측치 처리: 방법 및 비율
+• 이상치 제거: 기준 및 건수
+• 데이터 검증: 실제 비즈니스 로직과 대조
+
+---
+
+## 💡 Key Takeaways
+
+**"핵심 학습 한 줄"**
+
+구체적으로 무엇을 배웠는지 2-3문장 (기술적 깨달음, 방법론 체득, 비즈니스 인사이트)
+
+**아쉬운 점 & 개선 방향**
+
+• **한계점**: 구체적 제약사항 (데이터 한계, 시간 제약, 기술적 난이도 등)
+• **Next Step**: 다음에 시도할 구체적 개선안 (추가 변수, 다른 모델, 자동화 등)
+
+---
+
+## 👥 Collaboration & Impact
+
+**Stakeholders**
+
+• 누구와 협업했는지 (PM, 마케팅팀, 엔지니어링팀 등)
+• 각 역할별 기여 내용
+
+**Communication**
+
+• 비기술 팀원 대상 커뮤니케이션 방법 (주간 리포트, 대시보드, 발표 등)
+• 인사이트 전달 방식 (시각화, 요약 문서 등)
+
+**Real-world Usage**
+
+• 실제 사용 현황 (사용 팀, 빈도)
+• 사용자 피드백 (긍정/개선 요청)
 
 ---
 
 ## 🎯 Problem & Solution
 
-| Challenge | Solution | Tech Stack |
-|-----------|----------|------------|
-| 문제1 | 해결방법1 | 기술1 |
-| 문제2 | 해결방법2 | 기술2 |
+**Business Context**
+
+왜 이 문제가 중요했는지, 누가 어떤 어려움을 겪고 있었는지
+
+**Solutions**
+
+| Challenge | Solution | Tech Stack | Result |
+|-----------|----------|------------|--------|
+| 문제1 | 해결방법1 | 기술1 | 개선 효과 |
+| 문제2 | 해결방법2 | 기술2 | 개선 효과 |
 
 ---
 
@@ -69,40 +110,61 @@
 ### Architecture
 
 ```mermaid
-(시스템 구조도 3-5단계)
+(시스템 구조도 - 5-7단계까지 OK, 핵심 플로우 위주)
 ```
 
-**Tech Stack**: 기술스택 나열
+**Tech Stack**: 기술스택 나열 + 선택 이유
 
 ### Core Implementation
 
 ```python
-# 핵심 로직 (10줄 이내, 주석 포함)
+# 핵심 로직 (15-20줄, 주석 포함)
+# 실제 작동하는 코드 또는 pseudo-code
+
 def key_function():
-    # 설명
-    pass
+    """
+    핵심 기능 설명
+    """
+    # Step 1: 데이터 전처리
+    
+    # Step 2: 핵심 로직
+    
+    # Step 3: 결과 반환
+    return result
 ```
 
-**구현 포인트**: 기술적 선택과 이유, 최적화 방법
+**구현 포인트**
+
+• 기술적 선택 이유 (왜 A가 아닌 B를 선택했는가)
+• 최적화 방법 (성능 개선, 비용 절감 등)
+• 트레이드오프 (속도 vs 정확도, 비용 vs 품질 등)
 
 ---
 
-## 💡 Key Takeaways
+## 🚀 Deployment & Usage
 
-**"핵심 학습 제목"**
+**Production Status**
 
-2-3문장으로 구체적 학습 내용 (기술적 깨달음, 방법론 체득 등)
+• 배포 여부: 실서비스/파일럿/PoC
+• 사용 기간: YYYY.MM부터 현재까지
+• 사용 현황: 월 X회 조회, Y명 활용
 
-**한계 및 개선 방향**
+**Real Impact**
 
-• 현재 한계점
-• 다음 버전 개선 사항
+• 업무 효율: 작업 시간 X% 단축
+• 의사결정: 데이터 기반 의사결정 건수 증가
+• 팀 피드백: 실제 사용자 코멘트
+
+**Monitoring**
+
+• 성과 추적 방법 (대시보드, 리포트 등)
+• 이상 감지 (있는 경우)
 
 ---
 
 ## 🔗 Links
 
-[GitHub](링크) | [Live Demo](링크)
+[GitHub](링크) | [Live Demo](링크) | [Dashboard](링크)
 ```
 
 ---
@@ -118,19 +180,15 @@ def key_function():
 
 ## 🔍 Key Findings
 
-**주요 발견사항**
+**주요 발견사항 (3-5개)**
 
-• **Finding 1** — 구체적 인사이트 + 근거 데이터
-• **Finding 2** — 구체적 인사이트 + 근거 데이터
-• **Finding 3** — 구체적 인사이트 + 근거 데이터
+• **Finding 1** — 구체적 인사이트 + 정량적 근거
+• **Finding 2** — 구체적 인사이트 + 정량적 근거
+• **Finding 3** — 구체적 인사이트 + 정량적 근거
 
-**데이터 특성**
+**Business Implication**
 
-| 항목 | 내용 |
-|------|------|
-| 데이터 규모 | 100만 건, 50개 변수 |
-| 분석 기간 | 2023.01 ~ 2024.12 |
-| 주요 변수 | 매출, 고객 세그먼트, 지역 |
+이 발견이 비즈니스에 어떤 의미인지, 어떤 액션으로 이어질 수 있는지
 
 ---
 
@@ -145,19 +203,44 @@ def key_function():
 | 항목 | 내용 |
 |------|------|
 | 총 데이터 건수 | X건 |
-| 변수 개수 | X개 |
+| 변수 개수 | X개 (범주형 Y개, 연속형 Z개) |
 | 수집 기간 | YYYY.MM ~ YYYY.MM |
+| 분석 기간 | YYYY.MM ~ YYYY.MM |
 
 **Variables**
 
-• 주요 변수 구성 설명
-• 타겟 변수 (있는 경우)
+• 타겟 변수: 변수명 (예: 전환율, 매출액)
+• 주요 Feature: 변수명 나열 (5-10개)
+• 파생 변수: 생성한 변수 (있는 경우)
 
 **Data Preprocessing**
 
-• 결측치 처리 방법
-• 이상치 제거 기준
-• 파생 변수 생성 (있는 경우)
+• 결측치: X% → 처리 방법 (제거/대체/예측)
+• 이상치: 기준 (IQR, Z-score 등) → Y건 제거
+• 데이터 변환: 로그 변환, 정규화, 인코딩 등
+
+---
+
+## 📊 Statistical Validation
+
+**Hypothesis**
+
+• H0 (귀무가설): 구체적 가설
+• H1 (대립가설): 구체적 가설
+
+**Statistical Test**
+
+| Test | Metric | Result | Interpretation |
+|------|--------|--------|----------------|
+| t-test | p-value | 0.003 | 통계적으로 유의함 (p < 0.05) |
+| Chi-square | χ² | 15.3 | 두 변수 간 관계 있음 |
+| ANOVA | F-stat | 8.2 | 그룹 간 차이 유의함 |
+
+**Effect Size & Confidence Interval**
+
+• Cohen's d: 0.42 (medium effect)
+• 95% CI: [2.1%, 5.3%]
+• 실질적 의미: 효과 크기가 실무적으로 의미 있는 수준
 
 ---
 
@@ -165,33 +248,49 @@ def key_function():
 
 **분석 목적**
 
-무엇을 알고 싶었는지 (가설 또는 탐색 목표)
+• 비즈니스 질문: 무엇을 알고 싶었는지
+• 탐색 목표: 가설 또는 발견하고자 한 패턴
 
 **분석 방법**
 
-| Step | Method | Tool |
-|------|--------|------|
-| 1. 데이터 정제 | 결측치 처리, 이상치 제거 | Python, Pandas |
-| 2. 탐색적 분석 | 분포 확인, 상관관계 분석 | Seaborn, Matplotlib |
-| 3. 통계 검정 | t-test, ANOVA, 회귀분석 | Scipy, Statsmodels |
+| Step | Method | Tool | Output |
+|------|--------|------|--------|
+| 1. 데이터 정제 | 결측치 처리, 이상치 제거 | Python, Pandas | 정제된 데이터 |
+| 2. 탐색적 분석 | 분포 확인, 상관관계 분석 | Seaborn, Matplotlib | 시각화 |
+| 3. 통계 검정 | t-test, 회귀분석 | Scipy, Statsmodels | 유의성 확인 |
+| 4. 인사이트 도출 | 패턴 해석, 비즈니스 의미 파악 | - | 액션 제안 |
 
 ---
 
 ## 📈 Analysis Results
 
-### 주요 차트 및 분석
+### 주요 분석 결과 (2-3개)
 
-**분석 1: 변수 간 상관관계**
+**분석 1: 변수 간 관계**
 
 ```python
-# 핵심 분석 코드
-correlation_matrix = df.corr()
-sns.heatmap(correlation_matrix, annot=True)
+# 핵심 분석 코드 (15-20줄)
+import pandas as pd
+import seaborn as sns
+
+# 상관관계 분석
+correlation_matrix = df[key_vars].corr()
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+
+# 회귀분석
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X_train, y_train)
+r2_score = model.score(X_test, y_test)
 ```
 
-(차트 이미지 또는 설명)
+**인사이트**: 발견한 패턴 및 비즈니스 의미
 
-**인사이트**: 발견한 패턴 설명
+**분석 2: 세그먼트별 차이**
+
+(차트 이미지 또는 표)
+
+**인사이트**: 어떤 세그먼트가 다른지, 왜 중요한지
 
 ---
 
@@ -199,11 +298,32 @@ sns.heatmap(correlation_matrix, annot=True)
 
 **"배운 점"**
 
-통계적 방법론, 데이터 전처리 기법 등
+통계적 방법론, 데이터 전처리 기법, 분석 설계 등 구체적으로
 
-**한계 및 후속 분석 제안**
+**한계 및 후속 분석**
 
-• 한계점 + 어떻게 보완할 수 있을지
+• **한계점**: 데이터 한계 (표본 크기, 변수 부족), 분석 한계 (인과관계 미확인 등)
+• **Next Step**: 추가 실험 설계, 더 필요한 데이터, 다른 분석 방법
+
+---
+
+## 👥 Collaboration & Communication
+
+**Insight Sharing**
+
+• 누구에게 어떻게 전달했는지 (발표, 리포트, 대시보드)
+• 비기술 팀원 대상 커뮤니케이션 전략
+
+**Action Items**
+
+• 분석 결과로 실제 취한 액션
+• 비즈니스 팀의 반응 및 피드백
+
+---
+
+## 🔗 Links
+
+[Analysis Notebook](링크) | [Dashboard](링크) | [Report](링크)
 ```
 
 ---
@@ -219,15 +339,20 @@ sns.heatmap(correlation_matrix, annot=True)
 
 ## 🎯 Project Goal
 
-**만든 이유**
+**Why This Project?**
 
-어떤 문제를 해결하고 싶었는지
+어떤 문제를 해결하고 싶었는지, 왜 필요했는지 (비즈니스 맥락)
 
-**목표 기능**
+**Target Users**
 
-• 기능 1
-• 기능 2
-• 기능 3
+• 누가 사용하는가
+• 어떤 니즈를 해결하는가
+
+**Key Features**
+
+• 핵심 기능 1 — 구체적 설명
+• 핵심 기능 2 — 구체적 설명
+• 핵심 기능 3 — 구체적 설명
 
 ---
 
@@ -243,6 +368,7 @@ sns.heatmap(correlation_matrix, annot=True)
 |------|------|
 | 총 건수 | X건 |
 | 데이터 형식 | JSON, CSV 등 |
+| 업데이트 주기 | 실시간/일별/주별 |
 
 **Variables**
 
@@ -252,45 +378,99 @@ sns.heatmap(correlation_matrix, annot=True)
 
 • 실시간/배치 처리 방식
 • 데이터 검증 과정
+• 에러 핸들링
 
 ---
 
 ## 🛠️ Technical Implementation
 
-### Architecture
+### System Architecture
 
 ```mermaid
-(시스템 구조도)
+(시스템 구조도 - 5-7단계, 데이터 플로우 명확히)
 ```
 
-**Tech Stack**: 기술스택
+**Tech Stack**
+
+• Frontend: 기술스택
+• Backend: 기술스택
+• Database: 기술스택
+• Infrastructure: 기술스택
+
+**선택 이유**: 왜 이 기술을 선택했는지
+
+---
 
 ### Core Features
 
-**기능 1: 의도 파악 라우팅**
+**기능 1: 핵심 기능명**
 
 ```python
-def route_query(user_input):
-    # 핵심 로직
-    return path
+# 핵심 로직 (15-20줄)
+# 실제 작동 코드 또는 의미 있는 pseudo-code
+
+class FeatureImplementation:
+    def __init__(self):
+        """초기화"""
+        pass
+    
+    def process(self, input_data):
+        """
+        핵심 처리 로직
+        """
+        # Step 1: 전처리
+        
+        # Step 2: 핵심 로직
+        
+        # Step 3: 결과 반환
+        return result
 ```
 
-**구현 포인트**: 어떤 어려움이 있었고 어떻게 해결했는지
+**구현 포인트**
 
-**기능 2: RAG 최적화**
+• 기술적 난제: 어떤 어려움이 있었는지
+• 해결 방법: 어떻게 해결했는지 (시행착오, 대안 비교)
+• 최적화: 성능/비용 개선 (Before → After 수치)
 
-• 기술적 선택: FAISS vs Pinecone → FAISS 선택 이유
-• 최적화: 청크 사이즈 512 → 256으로 조정, 검색 정확도 15% 향상
+**기능 2: 핵심 기능명**
+
+• 기술적 선택: A vs B → 왜 B를 선택했는가
+• Trade-off: 속도 vs 정확도, 비용 vs 품질
+• 결과: 실제 개선 수치
 
 ---
 
 ## 📊 Technical Achievements
 
-| 항목 | 결과 |
-|------|------|
-| 응답 속도 | 평균 2.3초 (GPT-4 API 호출 포함) |
-| 정확도 | FAQ 버튼 클릭률 73% (유저 만족도 간접 지표) |
-| API 비용 | 월 $12 (캐싱 + 라우팅 최적화) |
+**Performance Metrics**
+
+| 항목 | 목표 | 실제 | 비고 |
+|------|------|------|------|
+| 응답 속도 | < 3초 | 평균 2.3초 | API 호출 포함 |
+| 정확도 | > 80% | 87% | 유저 만족도 기준 |
+| 비용 | < $20/월 | $12/월 | 캐싱 최적화 |
+
+**Reliability**
+
+• 에러율: X%
+• 가동률: 99.X%
+• 모니터링: 어떻게 추적하는지
+
+---
+
+## 🚀 Deployment & Usage
+
+**Production Status**
+
+• 배포 환경: Vercel, AWS, GCP 등
+• CI/CD: GitHub Actions, 자동 배포 여부
+• 모니터링: Sentry, Logging 등
+
+**Real Usage**
+
+• 사용 현황: 월 X회 실행, Y명 사용
+• 사용자 피드백: 긍정적 반응, 개선 요청
+• 실제 임팩트: 작업 시간 단축, 비용 절감 등
 
 ---
 
@@ -298,18 +478,32 @@ def route_query(user_input):
 
 **"기술적 학습"**
 
-RAG 파이프라인 구축, 프롬프트 엔지니어링 등
+구체적으로 어떤 기술을 체득했는지 (프레임워크 이해도, 아키텍처 설계 능력 등)
 
-**"개선 방향"**
+**아쉬운 점 & 개선 방향**
 
-• 현재 한계점
-• 다음 버전에 추가할 기능
+• **한계점**: 기술적 제약, 시간 제약, 리소스 제약
+• **Next Version**: 다음에 추가할 기능, 개선할 아키텍처
+
+---
+
+## 👥 Collaboration (Optional)
+
+**Team Collaboration**
+
+• 협업 방식: 코드 리뷰, 페어 프로그래밍 등
+• 역할 분담: 본인 역할 vs 다른 팀원 역할
+
+**Stakeholder Communication**
+
+• 비기술 팀원 대상 설명 방법
+• 피드백 수렴 및 반영 과정
 
 ---
 
 ## 🔗 Links
 
-[Live Demo](링크) | [GitHub](링크)
+[Live Demo](링크) | [GitHub](링크) | [Documentation](링크)
 ```
 
 ---
@@ -325,64 +519,115 @@ RAG 파이프라인 구축, 프롬프트 엔지니어링 등
 
 ## 🎓 Learning Objectives
 
-**학습 목표**
+**What I Wanted to Learn**
 
-• 배우고 싶었던 기술 1
-• 배우고 싶었던 기술 2
+• 배우고 싶었던 기술 1 — 왜 배우고 싶었는지
+• 배우고 싶었던 기술 2 — 실무 적용 목표
 
-**학습 자료**
+**Learning Resources**
 
-Kaggle Competition / Coursera / 책 제목 등
+• Kaggle Competition / Coursera 강의명 / 책 제목
+• 학습 기간: X주/X개월
 
 ---
 
 ## 🛠️ What I Learned
 
-### 기술 스택
+### Tech Stack & Concepts
+
+**기술 스택**
 
 Python, Scikit-learn, XGBoost 등
 
-### 핵심 개념
+**핵심 개념 (2-3개)**
 
 **개념 1: Feature Engineering**
 
 • 시도한 방법: 로그 변환, 원핫 인코딩, 다항 특성
-• 결과: Validation Score 0.82 → 0.87 (6% 향상)
+• 결과: Validation Score 0.82 → 0.87 (**6% 향상**)
+• 학습: 왜 이 방법이 효과적이었는지 이해
 
 **개념 2: 모델 앙상블**
 
 ```python
-# 앙상블 구현
-ensemble = VotingClassifier([
-    ('rf', RandomForest()),
-    ('xgb', XGBoost())
-])
+# 앙상블 구현 (15-20줄)
+from sklearn.ensemble import VotingClassifier
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+
+# 개별 모델 정의
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+xgb = XGBClassifier(n_estimators=100, learning_rate=0.1)
+
+# Voting Classifier
+ensemble = VotingClassifier(
+    estimators=[('rf', rf), ('xgb', xgb)],
+    voting='soft'
+)
+
+# 학습 및 평가
+ensemble.fit(X_train, y_train)
+score = ensemble.score(X_test, y_test)
 ```
+
+• 학습: Soft voting vs Hard voting 차이 이해
+• 결과: 개별 모델 대비 **3% 성능 향상**
 
 ---
 
 ## 📈 Results
 
-| Metric | Score | Rank |
-|--------|-------|------|
+**Competition/Project Results**
+
+| Metric | Score | Rank/Percentile |
+|--------|-------|-----------------|
 | Public LB | 0.87 | 상위 15% |
 | Private LB | 0.85 | 상위 20% |
+| Cross-Validation | 0.86 | - |
+
+**Key Achievements**
+
+• 달성한 것: 순위, 점수, 배지 등
+• 기술적 성취: 구현한 기법, 최적화 성과
 
 ---
 
 ## 💡 Reflection
 
-**잘한 점**
+**What Went Well**
 
-• 체계적으로 실험한 부분
+• 체계적으로 실험한 부분 (실험 로그, 버전 관리 등)
+• 성과가 좋았던 시도 (특정 feature, 모델 조합 등)
 
-**아쉬운 점**
+**What Could Be Better**
 
-• 시도하지 못한 것, 다음에 개선할 점
+• 시도하지 못한 것 (시간 부족, 난이도 등)
+• 다음에 개선할 점 (더 깊은 이해, 다른 접근법)
+
+**Applied to Real Work**
+
+• 실무에 어떻게 적용할 수 있을지
+• 배운 개념이 어떤 프로젝트에 유용할지
 
 ---
 
 ## 🔗 Links
 
-[Kaggle Notebook](링크) | [GitHub](링크)
+[Kaggle Notebook](링크) | [GitHub](링크) | [Certificate](링크)
 ```
+
+---
+
+## Version History
+
+- **v1.2.0** (2026.02.11): Major improvements based on recruiter & expert feedback
+  - Added Collaboration & Impact section (Type 1/2/3)
+  - Added Statistical Validation section (Type 2)
+  - Added Deployment & Usage section (Type 1/3)
+  - Removed duplicate "데이터 특성" table in Type 2
+  - Moved Key Takeaways earlier in Type 1
+  - Increased code block limit: 10 lines → 15-20 lines
+  - Enhanced hypothesis testing guidance
+  - Added business context to all types
+- **v1.1.0** (2026.02.11): Added Dataset section to Type 1/2/3 templates
+- **v1.0.0** (2026.02.10): Initial release
