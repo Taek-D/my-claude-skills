@@ -5,6 +5,58 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-02-14
+
+### Changed
+
+#### File Structure Overhaul (Token Optimization)
+- **Removed** `templates.md` single file (2,390 lines)
+- **Split into** type-specific templates: `type1-template.md`, `type2-template.md`, `type4-template.md` (~170 lines each)
+- **Added** `references/guides/` directory with 3 focused guides:
+  - `mermaid-guide.md` — Condensed diagram guide (6 types, best practices)
+  - `extra-label-guide.md` — Extra/Extra-Label templates by type
+  - `differentiation-guide.md` — Strategies + impact quantification formulas
+- **Impact**: ~75% token reduction per upload (load only relevant type)
+
+#### Flexible Section Structure
+- **Required**: Performance Overview, Key Takeaways, Links
+- **Recommended** (pick 2-3): Problem & Root Cause, Data & Methodology, Findings, Collaboration, Statistical Validation, Deployment
+- **Optional**: A/B Test, Error Analysis, Real-world Application
+- **Impact**: Each project gets unique structure instead of cookie-cutter layout
+
+#### Metric Realism Adjustments
+- Removed unrealistic metrics: ROI 1,422%, $600K/year, 120K users
+- Applied scale guidelines: 개인/사이드 (수백~수천 건, 수십만 원), 팀 (수천~수만 건, 수백만 원)
+- Updated all 3 examples with 3년차 data analyst-appropriate numbers
+- Currency changed: USD → KRW where appropriate
+
+### Added
+
+#### Portfolio Balance Check (Pre-upload)
+- Auto-checks Type distribution (Type 1/2/4 각 최소 1개 권장)
+- Tech stack coverage (SQL, Python, Tableau 누락 확인)
+- Glow color diversity (3개 이상 권장)
+- Section structure duplication warning (80%+ 동일 시)
+- Metric scale consistency
+
+#### Update Diff Preview
+- Shows before/after changes before committing updates
+- Format: `[수정] Problem: "old" → "new"`, `[추가] Section`, `[유지] Section`
+- User confirmation required (Y/N) before proceeding
+
+#### Language Rules Standardization
+- Section titles: Emoji + English (글로벌 가독성)
+- Body text: 한국어 (타겟 채용시장)
+- Extra-Label: 영어 대문자 (카드 UI)
+- Technical terms: English original (XGBoost, A/B Test)
+
+### Fixed
+
+#### P0 Bugs
+- **Type 3 remnants removed** — All references to deleted Type 3 cleaned from guides
+- **Duplicate sections fixed** — type1 example had duplicate Collaboration & Links sections
+- **Code block lengths** — All blocks trimmed to 15-20 lines max (was up to 57 lines)
+
 ## [1.3.2] - 2026-02-11
 
 ### Removed

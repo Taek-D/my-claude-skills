@@ -1,6 +1,6 @@
 {
   "name": "notion-project-upload",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Upload projects to Notion with optimized portfolio templates. Automatically analyzes project type and applies recruiter-friendly templates.",
   "author": {
     "name": "Taek-D"
