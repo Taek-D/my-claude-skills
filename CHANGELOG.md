@@ -5,6 +5,118 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-02-15
+
+### Added
+
+#### Screenshot Auto-Capture
+- **Smart capture strategy engine** — 프로젝트 유형(dashboard/automation/data_analysis/webapp/ml_ai)별 자동 캡처 전략
+  - Business: 2~4장 (메인 + 임팩트 + 상세)
+  - Exploratory: 2~3장 (핵심 발견 + 프로세스)
+  - Learning: 1~2장 (실행 결과)
+- **JD keyword priority boost** — JD 키워드 매칭 시 관련 캡처 우선순위 자동 상향
+- **Quantitative impact detection** — Impact 텍스트에서 %, $, 시간, 건수 등 자동 감지 → Before/After 캡처 추가
+
+#### Notion File Upload API Integration
+- **3-Step upload flow** — Create file upload → Send binary → Attach image block
+- **No external hosting** — GitHub/Imgur/S3 불필요, Notion API 토큰만으로 동작
+- **Batch upload** — 여러 이미지 순차 업로드 + 에러 핸들링
+- **Page cover auto-set** — 메인 스크린샷을 페이지 커버로 자동 설정
+- **Manual upload support** — 경로 지정으로 수동 이미지 업로드도 지원
+
+#### Web App Auto-Detection & Capture
+- **Framework detection** — Streamlit(8501), React(3000), Flask(5000), Gradio(7860), Dash(8050)
+- **Auto launch & capture** — 앱 자동 실행 → 로딩 대기 → Playwright viewport/element 캡처
+- **Process management** — 백그라운드 앱 실행/종료 자동 관리
+
+#### Terminal Renderer (Catppuccin Theme)
+- **Pillow-based rendering** — 외부 브라우저 의존 없이 터미널 이미지 생성
+- **Auto syntax highlighting** — `$` 프롬프트(green), ✅ 성공(green), ❌ 에러(red), 수치(peach)
+- **Catppuccin Mocha palette** — 다크 테마 터미널 스타일
+- **Command execution** — 명령 실행 → 결과 캡처 one-shot 지원
+- **Line truncation** — 50줄 초과 시 중간 생략 처리
+
+#### Caption System
+- **Template-based captions** — `{프로젝트명} — {캡처 대상} {핵심 수치}` 형식
+- **Portfolio-optimized** — 면접관 관점 캡션 (BAD: "screenshot1.png" → GOOD: "월별 비용 추이 — 38% 절감")
+
+#### Workflow Extension
+- **Phase 2 (NEW)**: 캡처 전략 수립 (프로젝트 분석 직후)
+- **Phase 3 (NEW)**: 캡처 실행 (웹앱 감지/터미널/Playwright)
+- **Demo section**: Solution과 Technical 사이에 이미지 섹션 자동 삽입
+
+### Changed
+- **SKILL.md description** — 스크린샷 캡처 기능 반영
+- **Upload workflow** — 4단계 → 5단계 (Screenshot Capture 단계 추가)
+- **Version**: 1.4.0 → 1.5.0
+
+### New Files
+```
+screenshot-capture/
+├── __init__.py              (37 lines)
+├── capture_manager.py       (577 lines) — 메인 오케스트레이터
+├── strategies.py            (571 lines) — 캡처 전략 엔진
+├── terminal_renderer.py     (495 lines) — 터미널 → 이미지
+└── notion_file_upload.py    (388 lines) — Notion File Upload API
+```
+Total: 2,068 lines added
+
+### Dependencies
+- `Pillow` — 터미널 이미지 렌더링 (필수)
+- `playwright` — 웹앱 캡처 (선택)
+
+## [1.4.0] - 2026-02-14
+
+### Changed
+
+#### File Structure Overhaul (Token Optimization)
+- **Removed** `templates.md` single file (2,390 lines)
+- **Split into** type-specific templates: `type1-template.md`, `type2-template.md`, `type4-template.md` (~170 lines each)
+- **Added** `references/guides/` directory with 3 focused guides:
+  - `mermaid-guide.md` — Condensed diagram guide (6 types, best practices)
+  - `extra-label-guide.md` — Extra/Extra-Label templates by type
+  - `differentiation-guide.md` — Strategies + impact quantification formulas
+- **Impact**: ~75% token reduction per upload (load only relevant type)
+
+#### Flexible Section Structure
+- **Required**: Performance Overview, Key Takeaways, Links
+- **Recommended** (pick 2-3): Problem & Root Cause, Data & Methodology, Findings, Collaboration, Statistical Validation, Deployment
+- **Optional**: A/B Test, Error Analysis, Real-world Application
+- **Impact**: Each project gets unique structure instead of cookie-cutter layout
+
+#### Metric Realism Adjustments
+- Removed unrealistic metrics: ROI 1,422%, $600K/year, 120K users
+- Applied scale guidelines: 개인/사이드 (수백~수천 건, 수십만 원), 팀 (수천~수만 건, 수백만 원)
+- Updated all 3 examples with 3년차 data analyst-appropriate numbers
+- Currency changed: USD → KRW where appropriate
+
+### Added
+
+#### Portfolio Balance Check (Pre-upload)
+- Auto-checks Type distribution (Type 1/2/4 각 최소 1개 권장)
+- Tech stack coverage (SQL, Python, Tableau 누락 확인)
+- Glow color diversity (3개 이상 권장)
+- Section structure duplication warning (80%+ 동일 시)
+- Metric scale consistency
+
+#### Update Diff Preview
+- Shows before/after changes before committing updates
+- Format: `[수정] Problem: "old" → "new"`, `[추가] Section`, `[유지] Section`
+- User confirmation required (Y/N) before proceeding
+
+#### Language Rules Standardization
+- Section titles: Emoji + English (글로벌 가독성)
+- Body text: 한국어 (타겟 채용시장)
+- Extra-Label: 영어 대문자 (카드 UI)
+- Technical terms: English original (XGBoost, A/B Test)
+
+### Fixed
+
+#### P0 Bugs
+- **Type 3 remnants removed** — All references to deleted Type 3 cleaned from guides
+- **Duplicate sections fixed** — type1 example had duplicate Collaboration & Links sections
+- **Code block lengths** — All blocks trimmed to 15-20 lines max (was up to 57 lines)
+
 ## [1.3.2] - 2026-02-11
 
 ### Removed

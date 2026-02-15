@@ -6,29 +6,43 @@ Custom Claude Code skills for personal productivity and automation.
 
 ### notion-project-upload
 
-**Version**: 1.3.2  
+**Version**: 1.5.0  
 **Category**: Productivity
 
-Upload projects to Notion with optimized portfolio templates. Automatically analyzes project type (business/exploratory/learning) and applies recruiter-friendly templates.
+Upload projects to Notion with optimized portfolio templates and auto-captured screenshots. Automatically analyzes project type (business/exploratory/learning), applies recruiter-friendly templates, and captures portfolio-optimized screenshots.
 
 **Features**:
 - 🎯 Auto-detects project type (3 types)
 - 🔄 Create new projects or update existing ones
-- 🎨 **Differentiation strategies** to avoid template-y appearance (v1.3+)
+- 📸 **Screenshot auto-capture** — smart capture based on project type & JD keywords (v1.5)
+- 🖼️ **Notion File Upload API** — direct image upload, no external hosting (v1.5)
+- 🎨 **Terminal renderer** — Catppuccin theme terminal output → image (v1.5)
+- 🌐 **Web app auto-detection** — Streamlit/React/Flask auto-launch & capture (v1.5)
+- ⚡ **Conditional file loading** — loads only relevant template (75% token savings) (v1.4)
+- 📊 **Portfolio balance check** — type/stack/color distribution analysis (v1.4)
+- 📝 **Update diff preview** — before/after comparison before committing (v1.4)
+- 🎨 **Flexible section structure** — required + recommended + optional sections (v1.4)
+- 📏 **Metric realism** — scale-appropriate numbers for 3-year DA level (v1.4)
+- 🎨 Differentiation strategies to avoid template-y appearance (v1.3+)
 - 👥 Collaboration & Impact section (v1.2+)
 - 📊 Statistical Validation for analysis projects (v1.2+)
-- 🚀 Deployment & Usage tracking (v1.2+)
 - 📁 Dataset section for data transparency (v1.1+)
-- 🎨 Emoji + English sections
 - 📝 14 property fields auto-populated
-- 🏷️ Tech stack tagging
-- 🎨 Glow color selection
-- 📅 Auto date updates
+- 🏷️ Tech stack tagging & glow color selection
 
 **Templates**:
 - Type 1: Business Impact (Before/After, ROI, metrics, collaboration, deployment)
 - Type 2: Exploratory Analysis (EDA, findings, statistical validation, insights)
 - Type 4: Learning Project (Kaggle, courses, practice, reflection)
+
+**What's New in v1.4.0**:
+- 📂 **File Structure Overhaul** — `templates.md` (2,390줄) → 6개 분리 파일 (타입별 템플릿 + 가이드)
+- ⚡ **Conditional Loading** — 업로드 시 해당 타입 파일만 로딩 (토큰 75% 절감)
+- 🔧 **Flexible Sections** — 필수+권장+선택 구조로 프로젝트별 차별화
+- 📊 **Portfolio Balance Check** — 타입/스택/색상 분포 자동 분석
+- 📝 **Update Diff Preview** — 변경사항 미리보기 후 확인
+- 📏 **Metric Realism** — 3년차 DA 수준에 맞는 현실적 수치 가이드
+- 🐛 **Bug Fixes** — Type 3 잔재, 중복 섹션, 코드블록 길이 모두 수정
 
 **What's New in v1.3.2**:
 - 🗑️ **Type 3 Removed** - Eliminated Technical Implementation type (backend/DevOps focused, not DA-appropriate)
@@ -96,22 +110,22 @@ cp -r my-claude-skills/skills/* ~/.claude/skills/
 - ✅ Deployment & Usage (Type 1/3)
 
 ### Type 1: Business Impact Project
-**[배달 시간 예측 모델 개선으로 고객 만족도 15% 향상](examples/type1-delivery-prediction.md)**
-- XGBoost 기반 배달 시간 예측, MAE -56%, CSAT +15점
-- 연 매출 +$600K, 서버 비용 연 $86K 절감
+**[배달 시간 예측 모델 개선으로 고객 만족도 향상](examples/type1-delivery-prediction.md)**
+- XGBoost 기반 배달 시간 예측, MAE 15.2분→6.8분 (-55%)
+- 월 환불 비용 ₩1.1M 절감, CSAT 3.8→4.3
 - Redis 캐싱, Feature Engineering, A/B 테스트
 
 ### Type 2: Exploratory/Analysis Project
 **[구독 서비스 이탈 패턴 분석으로 리텐션 전략 수립](examples/type2-churn-analysis.md)**
-- 12만 사용자 코호트 분석, 3가지 핵심 이탈 요인 발견
-- 30일 리텐션 62% → 70% (+8%p), 연 LTV +$720K
+- 2만 사용자 코호트 분석, 3가지 핵심 이탈 요인 발견
+- 30일 리텐션 62%→70% (+8%p), 연 ₩28.8M 수익 보전
 - Hypothesis Testing, Kaplan-Meier, Logistic Regression
 
 ### Type 4: Learning Project
 **[Kaggle Tabular Playground Series - Time Series Forecasting 학습](examples/type4-kaggle-learning.md)**
 - Prophet, XGBoost, LSTM 앙상블, RMSE 0.237
-- 3,200명 중 상위 8% (263등), Bronze Medal
-- 실무 적용 계획: 재고 예측 MAPE -31% 목표
+- 3,200명 중 상위 12% (384등), Bronze Medal
+- 87시간 투자, 실무 적용 계획 포함
 
 ---
 
