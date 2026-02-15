@@ -17,9 +17,13 @@ Upload or update projects in Notion portfolio database with optimized, recruiter
 ## Project Type Detection
 
 Analyze content and classify into one of 3 types:
+Analyze content and classify into one of 3 types:
 
 | Type | Triggers | Template Focus |
 |------|----------|---------------|
+| **1. Business Impact** | 매출, ROI, KPI, conversion, A/B 테스트, 감소, 증가, 개선 | Before/After tables, metrics in **bold**, Collaboration & Deployment |
+| **2. Exploratory Analysis** | 분석, EDA, 인사이트, 상관관계, 패턴, 데이터 품질 | Finding-oriented, Statistical Validation, charts/tables |
+| **4. Learning Project** | Kaggle, 학습, 연습, 튜토리얼, 강의, 공부 | Learning-focused, ranking/score, reflection |
 | **1. Business Impact** | 매출, ROI, KPI, conversion, A/B 테스트, 감소, 증가, 개선 | Before/After tables, metrics in **bold**, Collaboration & Deployment |
 | **2. Exploratory Analysis** | 분석, EDA, 인사이트, 상관관계, 패턴, 데이터 품질 | Finding-oriented, Statistical Validation, charts/tables |
 | **4. Learning Project** | Kaggle, 학습, 연습, 튜토리얼, 강의, 공부 | Learning-focused, ranking/score, reflection |
@@ -172,6 +176,14 @@ Extra-Label 작성 필요 → references/guides/extra-label-guide.md
 - **Code blocks**: 핵심 로직 10-15줄, 최대 20줄, 주석 포함
 - **Mermaid diagrams**: 3-5단계 간소화
 - **Quantitative metrics**: **볼드** 처리
+- **Section titles**: Emoji + English (e.g., `🎯 Performance Overview`)
+- **F-Pattern**: 성과/발견/학습을 상위 50%에 배치
+- **Toggle blocks**: 최소화. 100줄+ 코드나 부가 자료만 토글
+- **Bullets**: 하이브리드 — 리스트는 불릿, 배경설명은 단락, 숫자 비교는 테이블(선호)
+- **Emojis**: 섹션 헤딩만, 본문 최소화
+- **Code blocks**: 핵심 로직 10-15줄, 최대 20줄, 주석 포함
+- **Mermaid diagrams**: 3-5단계 간소화
+- **Quantitative metrics**: **볼드** 처리
 
 ## Properties (14 Fields)
 
@@ -180,6 +192,7 @@ Extra-Label 작성 필요 → references/guides/extra-label-guide.md
 |----------|-------------|
 | **Problem** | 문제 정의 (2-3문장, 비즈니스 맥락 포함) |
 | **Solution** | 해결 방법 (번호 매기기) |
+| **Impact** | 성과 (정량/정성, 현실적 스케일) |
 | **Impact** | 성과 (정량/정성, 현실적 스케일) |
 | **Learning** | 학습 내용 및 회고 |
 
@@ -198,6 +211,8 @@ Extra-Label 작성 필요 → references/guides/extra-label-guide.md
 |----------|--------|
 | **Extra-Label** | 영어 대문자 섹션 제목 (e.g., "A/B TEST DESIGN") |
 | **Extra** | `**제목** — 설명` 형식 (마크다운 볼드) |
+| **Extra-Label** | 영어 대문자 섹션 제목 (e.g., "A/B TEST DESIGN") |
+| **Extra** | `**제목** — 설명` 형식 (마크다운 볼드) |
 
 ### Auto-Generated
 | Property | Format |
@@ -207,9 +222,30 @@ Extra-Label 작성 필요 → references/guides/extra-label-guide.md
 ## Tech Stack Tags
 
 Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, BigQuery, PostgreSQL, MySQL, LangChain, OpenAI API, FAISS, RAG, Streamlit, Flask, FastAPI, Playwright, Selenium, JavaScript, React, Node.js, Google Sheets, Looker Studio, Discord API, GitHub Actions, Vercel
+Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, BigQuery, PostgreSQL, MySQL, LangChain, OpenAI API, FAISS, RAG, Streamlit, Flask, FastAPI, Playwright, Selenium, JavaScript, React, Node.js, Google Sheets, Looker Studio, Discord API, GitHub Actions, Vercel
 
 ## Quality Checklist
 
+### 구조
+- ✅ Performance Overview 테이블이 최상단에 있는가?
+- ✅ 섹션 제목이 Emoji + English인가?
+- ✅ Key Takeaways가 상위 50%에 위치하는가?
+- ✅ **다른 프로젝트와 섹션 구조가 다른가?** (동일 구조 반복 금지)
+- ✅ 코드 블록이 10-15줄 이내인가? (최대 20줄)
+- ✅ 섹션 중복이 없는가?
+
+### 콘텐츠
+- ✅ 수치가 현실적 스케일인가? (Metric Guidelines 참조)
+- ✅ Before/After 테이블 있는가? (Type 1)
+- ✅ 통계 검증 있는가? (Type 2: 가설, p-value, 효과크기)
+- ✅ 비즈니스 맥락("왜 이게 중요한지") 설명했는가?
+- ✅ Extra/Extra-Label이 채워졌는가?
+
+### Properties
+- ✅ 14개 properties 전부 채워졌는가?
+- ✅ 날짜가 YYYY.MM.DD 형식인가?
+- ✅ Problem에 비즈니스 맥락 포함?
+- ✅ Impact가 정량+정성?
 ### 구조
 - ✅ Performance Overview 테이블이 최상단에 있는가?
 - ✅ 섹션 제목이 Emoji + English인가?

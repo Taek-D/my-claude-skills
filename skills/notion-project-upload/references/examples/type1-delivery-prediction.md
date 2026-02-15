@@ -1,6 +1,6 @@
 # Delivery Time Prediction System
 
-> 💡 **"XGBoost 예측 모델로 배달 시간 오차 -56%, CSAT +15 points 달성"**
+> 💡 **"XGBoost 예측 모델로 배달 시간 오차 -56%, 환불 비용 -73% 달성"**
 >
 > 부정확한 배달 시간 안내 문제를 ML 모델로 해결하여 고객 만족도 개선 및 재주문률 증가
 
@@ -13,11 +13,11 @@
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
 | Prediction MAE | 23분 | 10분 | **-56%** |
-| CSAT Score | 3.8/5 | 4.5/5 | **+15 points** |
-| 재주문률 (30일) | 61% | 68% | **+7%p** |
-| 연간 매출 | - | +$600K | **ROI 1,422%** |
+| CSAT Score | 3.8/5 | 4.3/5 | **+0.5점** |
+| 환불 비용 | 월 ₩1.5M | 월 ₩400K | **-73%** |
+| 재주문률 (30일) | 61% | 66% | **+5%p** |
 
-**Impact Summary**: XGBoost 예측 모델 구축 → MAE 23분→10분 (-56%) → CSAT +15 points, 재주문률 +7%p → 연 매출 +$600K
+**Impact Summary**: XGBoost 예측 모델 구축 → MAE 23분→10분 (-56%) → CSAT +0.5점, 환불 비용 -73% → 월 ₩1.1M 절감
 
 ---
 
@@ -29,7 +29,7 @@
 
 • 부정확한 배달 시간 안내로 고객 불만 증가
 • CSAT 3.8/5 (업계 평균 4.2/5 대비 -0.4점)
-• 배달 지연으로 인한 연간 환불 요청 $120K
+• 배달 지연으로 인한 월 환불 비용 ₩1.5M
 • 재주문률 저하 (-12%)로 매출 손실
 
 **Root Cause Analysis**
@@ -150,8 +150,8 @@ async def predict(request: PredictRequest):
 **A/B Test Results** (2주, N=30,000)
 
 • Treatment MAE: **10.4분** vs Control: 22.8분 (-54%, **p<0.001**)
-• CSAT: **4.5/5** vs 3.8/5 (+15 points, **p<0.001**)
-• 재주문률: **68%** vs 61% (+7%p, **p<0.001**)
+• CSAT: **4.3/5** vs 3.8/5 (+0.5점, **p<0.001**)
+• 재주문률: **66%** vs 61% (+5%p, **p=0.003**)
 • 환불 요청: **-62%** reduction
 
 **Error Analysis**
@@ -208,32 +208,24 @@ gantt
 
 | 항목 | Before | After | Impact |
 |------|--------|-------|--------|
-| CSAT | 3.8/5 | 4.5/5 | **+15 points** |
-| 재주문율 | 61% | 68% | **+7%p** |
-| 연간 매출 | - | +$600K | **신규** |
-| 환불 비용 | $120K/년 | $35K/년 | **-$85K** |
+| CSAT | 3.8/5 | 4.3/5 | **+0.5점** |
+| 재주문율 | 61% | 66% | **+5%p** |
+| 환불 비용 | 월 ₩1.5M | 월 ₩400K | **-73%** |
+| CS 불만 접수 | 월 1,200건 | 480건 | **-60%** |
 
-**ROI Calculation**
+**비용 효과 계산**
 
 ```
-개발 비용: $45K (3명 × 2개월)
-연간 수익: $600K (매출) + $85K (환불 절감) = $685K
-ROI: ($685K - $45K) / $45K = 1,422%
-연환산 ROI: 340%
+환불 비용 절감: 월 ₩1.1M (₩1.5M → ₩400K)
+CS 대응 시간 절감: 월 약 96시간 (720건 × 8분)
+연간 절감 추정: 최소 ₩13.2M (환불) + CS 인건비 절감
 ```
-
-**Operational Efficiency**
-
-• 고객 불만 전화: 월 1,200건 → 480건 (**-60%**)
-• CS 대응 시간: 평균 8분 → 3분 (**-62%**)
-• 배달원 만족도: +12 points (정확한 시간 → 효율적 경로)
-• 배달 기사 대기 시간: 4.2분 → 2.1분 (**-50%**)
 
 **Long-term Impact**
 
-• 3개월: CSAT 4.5 유지, 재주문률 68% 안정화
-• 6개월: 추가 개선 기회 발견 (날씨 모델, 음식점별 모델)
-• 12개월 계획: 다른 도시 확장, 멀티모달 예측 (자전거/도보)
+• 3개월: CSAT 4.3 유지, 재주문률 66% 안정화
+• 6개월: 날씨별 전용 모델, 음식점별 모델 추가 개선 기회 발견
+• 12개월 계획: 다른 도시 확장 검토
 
 ---
 
@@ -252,60 +244,24 @@ ROI: ($685K - $45K) / $45K = 1,422%
 
 ## 🤝 Collaboration & Impact
 
-**Teams Involved**
-
-• **Data Science** (나): 모델 개발, Feature Engineering, A/B 테스트 설계
-• **Engineering**: FastAPI 구축, Redis 캐싱, Lambda 배포 파이프라인
-• **Product**: A/B 테스트 기획, CSAT 추적, 롤아웃 전략
-• **Operations**: 배달원 피드백 수집, 프로세스 개선 제안
-
-**My Contribution**
-
-• XGBoost 모델 개발 및 14개 feature engineering
-• Time-series cross-validation 설계 (6-fold)
-• A/B 테스트 통계 분석 및 유의성 검증
-• FastAPI 예측 서비스 구축 및 Redis 캐싱
-• Datadog 모니터링 대시보드 설정
-
-**Communication & Feedback**
-
-• 배달 팀 주 1회 미팅: "신호등 개수" 피처 추가 제안 → MAE 1.1분 개선
-• CS 팀: 예측 신뢰 구간 표시 요청 → "25-30분 도착 예정" UI 개선
-• 경영진: ROI 1,422% 보고 → 다른 도시 확장 승인
-
----
-
-## 🔗 Links
-
-[GitHub](https://github.com/example/delivery-prediction) | [Dashboard](https://datadog.com/dashboard/delivery) | [A/B Test Report](https://docs.google.com/ab-test-report)
-
----
-
-## 🤝 Collaboration & Impact
+**My Role**: XGBoost 모델 개발, Feature Engineering, A/B 테스트 설계 및 통계 분석
 
 **Cross-functional Collaboration**
 
-**배달 운영팀** (PM: 김현수)
-• 주 1회 성과 리뷰 미팅 - 예측 정확도 모니터링 및 이슈 트래킹
-• 배달 기사 40명 인터뷰로 실제 배달 시 변수 파악 (신호등, 주차, 엘리베이터 등)
+**배달 운영팀**
+• 주 1회 성과 리뷰 미팅 — 예측 정확도 모니터링 및 이슈 트래킹
+• 배달 기사 인터뷰로 실제 변수 파악 (신호등, 주차, 엘리베이터 등)
 • 피드백: "교통 혼잡도" 피처 추가 제안 → MAE 1.8분 개선
 
-**음식점 파트너팀** (매니저: 이지연)
-• 200개 파트너 음식점 조리 시간 데이터 수집 협업
-• 음식 종류별 평균 조리 시간 벤치마크 구축
-• 결과: 조리 시간 예측 정확도 68% → 84% 향상
-
-**CS팀** (팀장: 박민지)
+**CS팀**
 • 불만 접수 내역 분석으로 주요 pain point 파악
-• "예측 신뢰 구간" 표시 제안 수용 → 모호함 감소
-• 결과: 배달 시간 관련 불만 60% 감소
+• "예측 신뢰 구간" 표시 제안 수용 → 배달 시간 관련 불만 **60% 감소**
 
 **Stakeholder Impact**
 
-• **고객**: 정확한 도착 시간 안내로 대기 스트레스 감소, CSAT +15점
-• **배달 기사**: 최적 경로 추천으로 시간당 배달 건수 +19%, 수입 증가
-• **음식점**: 주문 준비 타이밍 최적화로 음식 품질 유지
-• **회사**: 재주문률 상승으로 연 매출 +$600K
+• **고객**: 정확한 도착 시간 안내로 CSAT **+0.5점**
+• **운영**: 환불 비용 월 **₩1.1M 절감** (-73%)
+• **비즈니스**: 재주문률 **+5%p** 상승
 
 ---
 
@@ -338,41 +294,26 @@ graph LR
 **Feature Engineering - Traffic Congestion Score**
 
 ```python
-import pandas as pd
-import numpy as np
-from datetime import datetime
-
 def calculate_traffic_congestion(row):
-    """
-    교통 혼잡도 계산 - 시간대, 요일, 날씨 반영
-    반환값: 0.5 (한산) ~ 2.5 (매우 혼잡)
-    """
-    base_congestion = 1.0
-    
-    # 시간대 가중치
+    """교통 혼잡도 계산 - 시간대, 요일, 날씨 반영 (0.5~2.5)"""
+    base = 1.0
     hour = row['order_hour']
-    if 12 <= hour <= 14 or 18 <= hour <= 20:  # 러시아워
-        base_congestion *= 1.8
-    elif 22 <= hour or hour <= 6:  # 심야
-        base_congestion *= 0.6
     
-    # 요일 가중치
-    if row['is_weekend']:
-        base_congestion *= 1.2
+    # 시간대 가중치 (러시아워 1.8x, 심야 0.6x)
+    if 12 <= hour <= 14 or 18 <= hour <= 20:
+        base *= 1.8
+    elif 22 <= hour or hour <= 6:
+        base *= 0.6
     
-    # 날씨 가중치
-    if row['weather'] == 'rain':
-        base_congestion *= 1.4
-    elif row['weather'] == 'snow':
-        base_congestion *= 1.8
+    # 요일/날씨 가중치
+    if row['is_weekend']: base *= 1.2
+    if row['weather'] == 'rain': base *= 1.4
+    elif row['weather'] == 'snow': base *= 1.8
     
-    return np.clip(base_congestion, 0.5, 2.5)
+    return np.clip(base, 0.5, 2.5)
 
-# 적용
+# 적용 → MAE 9.1분 → 6.8분 (-25%)
 df['traffic_congestion'] = df.apply(calculate_traffic_congestion, axis=1)
-df['adjusted_distance'] = df['route_distance_km'] * df['traffic_congestion']
-
-# Impact: MAE 9.1분 → 6.8분 (-25%)
 ```
 
 **XGBoost Model Training**
@@ -380,37 +321,22 @@ df['adjusted_distance'] = df['route_distance_km'] * df['traffic_congestion']
 ```python
 from xgboost import XGBRegressor
 from sklearn.model_selection import cross_val_score
-import numpy as np
 
-# 모델 정의
+# XGBoost 모델 정의
 model = XGBRegressor(
-    max_depth=7,
-    learning_rate=0.05,
-    n_estimators=300,
-    subsample=0.8,
-    colsample_bytree=0.8,
-    objective='reg:squarederror',
-    random_state=42
+    max_depth=7, learning_rate=0.05,
+    n_estimators=300, subsample=0.8,
+    colsample_bytree=0.8, random_state=42
 )
 
 # 5-Fold Cross-Validation
-cv_scores = cross_val_score(
-    model, X_train, y_train,
-    cv=5,
-    scoring='neg_mean_absolute_error'
-)
-
+cv_scores = cross_val_score(model, X_train, y_train, cv=5,
+                            scoring='neg_mean_absolute_error')
 print(f"CV MAE: {-cv_scores.mean():.2f} ± {cv_scores.std():.2f}분")
 # Output: CV MAE: 6.95 ± 0.31분
 
-# 전체 데이터로 학습
 model.fit(X_train, y_train)
-
-# 테스트 성능
-y_pred = model.predict(X_test)
-test_mae = np.mean(np.abs(y_test - y_pred))
-print(f"Test MAE: {test_mae:.2f}분")
-# Output: Test MAE: 6.82분
+# Test MAE: 6.82분
 ```
 
 ---

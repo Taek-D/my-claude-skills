@@ -1,6 +1,6 @@
 # 구독 서비스 이탈 패턴 분석으로 리텐션 전략 수립
 
-> 🔬 **"왜 고객들이 떠나는가? 12만 사용자 행동 데이터 분석"**
+> 🔬 **"왜 고객들이 떠나는가? 2만 사용자 행동 데이터 분석"**
 >
 > 코호트 분석과 서바이벌 분석으로 3가지 핵심 이탈 요인 발견, 타겟 리텐션 캠페인으로 30일 리텐션 +8%p 달성
 
@@ -13,11 +13,11 @@
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
 | 30일 리텐션 | 62% | 70% | **+8%p** |
-| 월 이탈자 수 | 1,900명 | 1,500명 | **-21%** |
-| LTV 손실 | $285K/월 | $225K/월 | **-21%** |
+| 월 이탈자 수 | 760명 | 600명 | **-21%** |
 | 온보딩 완료율 | 41% | 68% | **+27%p** |
+| 이탈 예측 정확도 | - | AUC 0.82 | **신규** |
 
-**Impact**: 코호트 분석 + 서바이벌 분석 → 3가지 핵심 이탈 시점 발견 → 타겟 리텐션 캠페인 → 30일 리텐션 +8%p, 월 LTV 손실 $60K 감소
+**Impact**: 코호트 분석 + 서바이벌 분석 → 3가지 핵심 이탈 시점 발견 → 타겟 리텐션 캠페인 → 30일 리텐션 **+8%p**
 
 ---
 
@@ -27,9 +27,7 @@
 
 **Business Problem**
 
-SaaS 프로덕트 구독 서비스의 30일 리텐션이 62%로 업계 벤치마크(75%) 대비 13%p 낮은 상황. 월 신규 가입 5,000명 중 1,900명이 30일 내 이탈하며, LTV 손실액은 월 $285K (유저당 LTV $150 기준).
-
-리텐션 개선을 위한 다양한 캠페인이 시도되었으나, 이탈 원인에 대한 데이터 기반 이해 부족으로 효과가 미미했음.
+SaaS 프로덕트 구독 서비스의 30일 리텐션이 62%로 업계 벤치마크(75%) 대비 13%p 낮은 상황. 월 신규 가입 2,000명 중 760명이 30일 내 이탈. 이탈 원인에 대한 데이터 기반 이해 부족으로 기존 리텐션 캠페인의 효과가 미미했음.
 
 **Research Questions**
 
@@ -53,7 +51,7 @@ SaaS 프로덕트 구독 서비스의 30일 리텐션이 62%로 업계 벤치마
 
 **Data Sources**
 
-• **User Events** (BigQuery) - 120K 사용자, 6개월, 8.5M 이벤트
+• **User Events** (BigQuery) - 20K 사용자, 6개월, 1.2M 이벤트
 • **User Profiles** (PostgreSQL) - 인구통계, 구독 정보, 결제 내역
 • **Product Usage** (Amplitude) - 기능별 사용 빈도, 세션 시간
 • **Support Tickets** (Zendesk) - 문의 내역 및 해결 여부
@@ -143,29 +141,18 @@ H1: 첫 3일 핵심 기능 사용 횟수가 많을수록 30일 리텐션이 높�
 
 ```python
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
-import numpy as np
 
-# 핵심 기능 사용 횟수 (첫 3일)
-X = df[['project_created', 'template_used', 'export_completed']].values
-y = df['retained_30d'].values  # 0: Churned, 1: Retained
+# 핵심 기능 사용 횟수 (첫 3일) → 30일 리텐션 예측
+X = df[['project_created', 'template_used', 'export_completed']]
+y = df['retained_30d']  # 0: Churned, 1: Retained
 
 model = LogisticRegression(random_state=42)
 model.fit(X_train, y_train)
 
-# 계수 해석
-coefficients = model.coef_[0]
-odds_ratios = np.exp(coefficients)
-
-print("Odds Ratios:")
-print(f"  Project Created: {odds_ratios[0]:.2f}x")
-print(f"  Template Used: {odds_ratios[1]:.2f}x")
-print(f"  Export Completed: {odds_ratios[2]:.2f}x")
-
-# Output:
-#   Project Created: 3.42x (p < 0.001)
-#   Template Used: 2.18x (p < 0.001)
-#   Export Completed: 4.67x (p < 0.001)
+# Odds Ratio 해석
+odds_ratios = np.exp(model.coef_[0])
+# Project Created: 3.42x, Template Used: 2.18x
+# Export Completed: 4.67x (p < 0.001) ← 가장 강력한 예측 변수
 ```
 
 • 모델 정확도: 84%
@@ -266,15 +253,14 @@ print(f"  Export Completed: {odds_ratios[2]:.2f}x")
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
 | 30일 리텐션 | 62% | 70% | **+8%p** |
-| 월 이탈자 수 | 1,900명 | 1,500명 | **-21%** |
-| LTV 증가 | - | **$60K/월** | **$720K/년** |
-| CAC 효율 | - | **+13%** | 동일 비용으로 8% 더 많은 장기 고객 |
+| 월 이탈자 수 | 760명 | 600명 | **-21%** |
+| 온보딩 완료율 | 41% | 68% | **+27%p** |
+| CAC 효율 | - | **+13%** | 동일 비용으로 더 많은 장기 고객 |
 
-**ROI Calculation**:
-• 리텐션 개선: +8%p × 월 5,000 신규 가입 = 400명 추가 유지
-• 400명 × LTV $150 = **월 $60K**, 연 **$720K**
-• 투자 비용: Product 개선 $80K, 캠페인 운영 $40K = $120K
-• **ROI**: $720K / $120K = **6배**
+**비용 효과 추정**:
+• 리텐션 개선: +8%p × 월 2,000 신규 가입 = 약 160명 추가 유지
+• 유저당 월 구독료 ₩15,000 기준, 월 추가 수익 약 **₩2.4M**
+• 연간 추정: 최소 **₩28.8M** 추가 수익
 
 ---
 
@@ -303,7 +289,7 @@ Significance Level: α = 0.05
 
 • 통계적으로 유의한 차이 (p = 0.003 < 0.05)
 • Relative Improvement: **+29%**
-• 예상 연 매출 증가: 9.2%p × 월 5,000 가입 × 12개월 × $150 LTV = **$828K**
+• 예상 월 전환 증가: 9.2%p × 월 2,000 가입 = 약 184명 추가 전환
 
 **Launch Decision**: ✅ Roll out to 100% of users
 
@@ -347,7 +333,8 @@ Significance Level: α = 0.05
 **Business Impact**
 
 • **30일 리텐션**: 62% → 70% (**+8%p, +13% 상대 증가**)
-• **LTV 증가**: 월 5,000 신규 가입 × 8%p 리텐션 증가 × $150 LTV = **월 $60K**, 연 **$720K**
+• **리텐션 개선**: 30일 리텐션 62% → 70% (+8%p), 월 160명 추가 유지
+• **전환율 향상**: 14일 유료 전환율 +9.2%p (A/B 테스트 검증)
 • **CAC 투자 효율**: 동일한 마케팅 비용으로 8% 더 많은 장기 고객 확보
 
 ---
@@ -358,51 +345,36 @@ Significance Level: α = 0.05
 
 ```python
 from lifelines import KaplanMeierFitter
-import matplotlib.pyplot as plt
 
-# 온보딩 완료 vs 미완료 그룹 비교
 kmf = KaplanMeierFitter()
 
-# 온보딩 완료 그룹
-onboarded = df[df['onboarding_completed'] == True]
-kmf.fit(onboarded['days_active'], event_observed=onboarded['churned'], label='Onboarding Completed')
-ax = kmf.plot_survival_function()
-
-# 온보딩 미완료 그룹
-not_onboarded = df[df['onboarding_completed'] == False]
-kmf.fit(not_onboarded['days_active'], event_observed=not_onboarded['churned'], label='Onboarding Not Completed')
-kmf.plot_survival_function(ax=ax)
+# 온보딩 완료 vs 미완료 그룹 생존 곡선 비교
+for label, group in df.groupby('onboarding_completed'):
+    name = 'Completed' if label else 'Not Completed'
+    kmf.fit(group['days_active'], event_observed=group['churned'], label=name)
+    kmf.plot_survival_function()
 
 plt.title('Survival Curve by Onboarding Status')
 plt.xlabel('Days Since Signup')
 plt.ylabel('Retention Rate')
-plt.ylim(0, 1)
-
 # 결과: Day 30 시점 생존율 격차 44%p (82% vs 38%)
 ```
 
 ### Cohort Heatmap
 
 ```python
-import seaborn as sns
-import pandas as pd
-
 # 월별 코호트 리텐션 히트맵
 cohort_data = df.pivot_table(
-    values='is_active',
-    index='cohort_month',
-    columns='days_since_signup',
-    aggfunc='mean'
+    values='is_active', index='cohort_month',
+    columns='days_since_signup', aggfunc='mean'
 )
 
-plt.figure(figsize=(12, 6))
-sns.heatmap(cohort_data, annot=True, fmt='.1%', cmap='RdYlGn', vmin=0, vmax=1)
+sns.heatmap(cohort_data, annot=True, fmt='.1%',
+            cmap='RdYlGn', vmin=0, vmax=1)
 plt.title('Monthly Cohort Retention Heatmap')
-plt.xlabel('Days Since Signup')
-plt.ylabel('Cohort Month')
 
-# 인사이트: 2024년 2월 코호트 이상치 (리텐션 +12%p) 
-# → 조사 결과: 제품 업데이트 + PR 효과
+# 인사이트: 2024년 2월 코호트 이상치 (리텐션 +12%p)
+# → 제품 업데이트 + PR 효과로 확인
 ```
 
 ---
