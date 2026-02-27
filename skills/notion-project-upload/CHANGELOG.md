@@ -5,6 +5,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-02-27
+
+### Added
+
+#### Type 3: Product Development Template (NEW)
+- **웹앱/모바일앱/게임/SaaS 프로젝트** 전용 템플릿
+- 섹션: Feature Showcase, Architecture & Tech Stack, User Experience & Metrics, Development Process, Deployment & Operations
+- 트리거 키워드: 웹앱, 모바일앱, 게임, SaaS, 서비스, UI/UX, 배포, 유저
+- 글로우 색상: pink (시각화/프로덕트)
+- 예제: Focus Valley (포모도로 타이머 웹앱) — `references/examples/type3-focus-valley.md`
+
+#### Type 5: Automation & Tools Template (NEW)
+- **봇/파이프라인/크롤러/CLI 도구/모니터링** 전용 템플릿
+- 섹션: Workflow Design, System Architecture, Efficiency Gains, Error Handling & Reliability, Scheduling & Operations
+- 트리거 키워드: 봇, 자동화, 파이프라인, 크롤링, CLI, 스케줄러, 모니터링
+- 글로우 색상: amber (자동화)
+- 예제: Musinsa Bot (멀티플랫폼 가격 모니터링) — `references/examples/type5-musinsa-bot.md`
+
+#### Screenshot Guide (분리)
+- SKILL.md에 인라인되어 있던 스크린샷 가이드를 `references/guides/screenshot-guide.md`로 분리
+- 타입별 캡처 전략 추가 (Type 3: 앱 스크린샷 최우선, Type 5: 워크플로우 실행 결과)
+
+### Changed
+
+#### SKILL.md 전면 리팩토링
+- **393줄 → 197줄** (50% 감소, 토큰 최적화)
+- 중복 제거: Project Type Detection 테이블, Design Rules, Properties, Quality Checklist, Tech Stack Tags 등 6곳 중복 삭제
+- 5타입 체계: 3타입(1/2/4) → 5타입(1/2/3/4/5) 확장
+- Version History 섹션 제거 (CHANGELOG.md로 단일화)
+- Screenshot 섹션 외부 가이드로 분리 (108줄 절약)
+
+#### 가이드 업데이트 (5타입 반영)
+- `extra-label-guide.md`: Type 3 (TECH STACK DECISIONS, FEATURE SPEC, USER FLOW, PERFORMANCE METRICS, DESIGN SYSTEM) + Type 5 (WORKFLOW DESIGN, ERROR HANDLING STRATEGY, SCHEDULING CONFIG, SYSTEM ARCHITECTURE, EFFICIENCY REPORT) 추가
+- `differentiation-guide.md`: 타입 믹스 전략, 이상적 포트폴리오 구성 가이드, Type 3/5 임팩트 정량화 공식 추가
+- `mermaid-guide.md`: Type 3 (Sequence API 흐름, State 유저 플로우, System Architecture) + Type 5 (Automation Workflow) 다이어그램 예시 추가
+
+### Fixed
+- SKILL.md 6곳 중복 섹션 제거 (20-29행, 179-186행, 195-196행, 213-215행, 225-226행, 249-268행)
+- Properties 테이블 통합 (Core Analysis + Metadata + Extra + Auto 분리 → 단일 테이블)
+- Quality Checklist 타입별 필수 요소 명시 (Before/After, 통계검증, Demo/Feature, Reflection, Workflow)
+
 ## [1.5.0] - 2026-02-15
 
 ### Added

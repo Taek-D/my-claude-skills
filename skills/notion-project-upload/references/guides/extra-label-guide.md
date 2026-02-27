@@ -23,6 +23,15 @@
 | **STATISTICAL VALIDATION** | 통계적 검증 강조 |
 | **SEGMENTATION ANALYSIS** | 세그먼트별 분석 수행 시 |
 
+### Type 3: Product Development
+| Extra-Label | 사용 시점 |
+|-------------|----------|
+| **TECH STACK DECISIONS** | 기술 선택 이유가 중요할 때 |
+| **FEATURE SPEC** | 핵심 기능 상세 스펙 |
+| **USER FLOW** | 사용자 여정이 복잡할 때 |
+| **PERFORMANCE METRICS** | Lighthouse, FCP, 번들 사이즈 등 |
+| **DESIGN SYSTEM** | UI/UX 설계 원칙 설명 |
+
 ### Type 4: Learning Project
 | Extra-Label | 사용 시점 |
 |-------------|----------|
@@ -30,6 +39,15 @@
 | **BEFORE/AFTER SKILLS** | 역량 변화 |
 | **REAL-WORLD APPLICATION** | 실무 적용 계획 |
 | **EXPERIMENT DESIGN** | 실험적 시도 |
+
+### Type 5: Automation & Tools
+| Extra-Label | 사용 시점 |
+|-------------|----------|
+| **WORKFLOW DESIGN** | 자동화 흐름이 핵심일 때 |
+| **ERROR HANDLING STRATEGY** | 에러 처리가 복잡한 경우 |
+| **SCHEDULING CONFIG** | 스케줄링 설계가 중요할 때 |
+| **SYSTEM ARCHITECTURE** | 여러 컴포넌트 연동 시 |
+| **EFFICIENCY REPORT** | 자동화 전후 비교 데이터 |
 
 ## 작성 예시
 
@@ -42,21 +60,31 @@
 **Statistical Power** — 95% 신뢰수준, 80% 검정력, p<0.05
 ```
 
+### TECH STACK DECISIONS (Type 3)
+```
+**Frontend** — React + Vite (HMR 속도 우선, CRA 대비 10x 빌드 속도)
+**Animation** — Canvas API (DOM 조작 대비 60fps 안정적 렌더링)
+**State** — Context API (Redux 과도, 컴포넌트 6개 규모에 적합)
+**Deploy** — Vercel (GitHub 자동 배포, Preview URL 지원)
+**Sound** — Web Audio API (외부 의존성 0, 번들 사이즈 최소화)
+```
+
+### WORKFLOW DESIGN (Type 5)
+```
+**Trigger** — GitHub Actions cron (매일 09:00, 18:00 KST)
+**Crawling** — Playwright headless (6개 사이트 병렬, timeout 30초)
+**Processing** — 가격 비교 엔진 (최저가 판별 + 노이즈 필터링)
+**Storage** — Google Sheets API (가격 추이 기록 + 자동 차트)
+**Alert** — Discord Webhook (최저가 감지 시 임베드 알림)
+**Error** — 3회 재시도 + exponential backoff + Discord 에러 알림
+```
+
 ### HYPOTHESIS TESTING FRAMEWORK (Type 2)
 ```
 **H1: 3일 내 미사용** — 가입 후 3일 내 미사용 시 이탈률 3배 증가 (Chi-square)
 **H2: 프로필 완성도** — 프로필 <50% 사용자의 이탈률 유의하게 높음 (Logistic Reg)
 **Test Method** — Chi-square (범주형), t-test (연속형)
 **Significance Level** — α=0.05, Bonferroni correction
-```
-
-### DATA DETAILS (Type 2)
-```
-**Data Source** — PostgreSQL (user_events), S3 (clickstream logs)
-**Time Range** — 2024.01 ~ 2024.12 (12개월)
-**Sample Size** — 15,000명 (신규 가입자)
-**Data Quality** — Missing <2%, IQR 이상치 제거
-**Feature Engineering** — 20개 features (demographic 6, behavioral 9, temporal 5)
 ```
 
 ### LEARNING JOURNEY (Type 4)
