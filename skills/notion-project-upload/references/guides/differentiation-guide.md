@@ -49,11 +49,11 @@
 
 | 전략 | 순서 | 적합한 프로젝트 |
 |------|------|-----------------|
-| 기본 (추천) | Overview → Problem → Solution → Takeaways | 대부분 |
-| 성과 최우선 | Overview → Deployment → Impact → Takeaways | Type 1 운영 성과 |
-| 학습 최우선 | Overview → Takeaways → Goal → Details | Type 4 커리어 전환 |
-| 데모 최우선 | Overview → Feature → Architecture → Takeaways | Type 3 웹앱 |
-| 자동화 최우선 | Overview → Workflow → Efficiency → Takeaways | Type 5 봇/도구 |
+| 기본 (추천) | Overview → Problem → Approach → Solution → Challenge → Takeaways | 대부분 |
+| 성과 최우선 | Overview → Deployment → Result → Takeaways | Type 1 운영 성과 |
+| 학습 최우선 | Overview → Takeaways → Goal → Approach → Details | Type 4 커리어 전환 |
+| 데모 최우선 | Overview → Feature → Approach → Architecture → Takeaways | Type 3 웹앱 |
+| 자동화 최우선 | Overview → Workflow → Approach → Efficiency → Takeaways | Type 5 봇/도구 |
 
 ⚠️ 순서 변형은 특별한 이유가 있을 때만. 기본 순서가 F-Pattern 최적화됨.
 

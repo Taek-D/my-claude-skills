@@ -46,20 +46,21 @@
 | 문제2 | 원인2 | 데이터 근거 |
 ```
 
-### Option B: Solution Design
+### Option B: Approach & Solution Design
 
 ```markdown
-## 🛠️ Solution Design
+## 🛠️ Approach & Solution Design
 
-**Approach**
+**Why This Approach** ← Approach 필드 반영
 
-어떤 방향으로 해결했는지 2-3문장
+• 왜 이 방법을 선택했는가 (데이터 근거, 대안 검토 결과)
+• 검토했지만 선택하지 않은 방법과 이유
 
 **Solution Options**
 
 | Option | Pros | Cons | Decision |
 |--------|------|------|----------|
-| 방법 A | 장점 | 단점 | ❌ |
+| 방법 A | 장점 | 단점 | ❌ 기각 이유 |
 | 방법 B | 장점 | 단점 | ✅ **선택** |
 
 **A/B Test Design** (해당 시)

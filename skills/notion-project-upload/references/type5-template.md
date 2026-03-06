@@ -29,7 +29,7 @@
 
 ## 권장 섹션 (프로젝트에 맞게 2-3개 선택)
 
-### Option A: Problem & Manual Process
+### Option A: Problem & Manual Process + Approach
 
 ```markdown
 ## 🔍 Problem & Manual Process
@@ -38,6 +38,11 @@
 
 • 수작업으로 X를 해야 했고, 매번 Y시간 소요
 • 실수 발생 빈도 / 반복 작업의 비효율
+
+**Why This Automation Approach** ← Approach 필드 반영
+
+• 왜 이 방법(Playwright/cron/n8n 등)을 선택했는가
+• 검토했지만 선택하지 않은 대안과 이유
 
 **기존 수작업 프로세스**
 

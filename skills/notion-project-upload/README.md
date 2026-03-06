@@ -6,20 +6,25 @@ Custom Claude Code skills for personal productivity and automation.
 
 ### notion-project-upload
 
-**Version**: 1.5.0  
+**Version**: 2.1.0  
 **Category**: Productivity
 
-Upload projects to Notion with optimized portfolio templates and auto-captured screenshots. Automatically analyzes project type (business/exploratory/learning), applies recruiter-friendly templates, and captures portfolio-optimized screenshots.
+Upload projects to Notion with optimized portfolio templates and auto-captured screenshots. Automatically analyzes project type (business/analysis/product/learning/automation), applies recruiter-friendly templates, and captures portfolio-optimized screenshots.
 
 **Features**:
-- 🎯 Auto-detects project type (3 types)
+- 🎯 Auto-detects project type (5 types)
 - 🔄 Create new projects or update existing ones
+- 🆕 **Type 3: Product Development** — 웹앱/모바일앱/게임/SaaS 전용 템플릿 (v2.0)
+- 🆕 **Type 5: Automation & Tools** — 봇/파이프라인/크롤러/CLI 전용 템플릿 (v2.0)
 - 📸 **Screenshot auto-capture** — smart capture based on project type & JD keywords (v1.5)
 - 🖼️ **Notion File Upload API** — direct image upload, no external hosting (v1.5)
 - 🎨 **Terminal renderer** — Catppuccin theme terminal output → image (v1.5)
 - 🌐 **Web app auto-detection** — Streamlit/React/Flask auto-launch & capture (v1.5)
 - ⚡ **Conditional file loading** — loads only relevant template (75% token savings) (v1.4)
 - 📊 **Portfolio balance check** — type/stack/color distribution analysis (v1.4)
+- 🆕 **PACRL Framework** — Problem/Approach/Solution/Challenge/Result/Learning 서술 구조 (v2.1)
+- 🆕 **Approach field** — 왜 이 방법을 선택했는가 (근거, 대안 검토) (v2.1)
+- 🆕 **Challenge field** — 시행착오, A→B 피벗, 실패 케이스 (v2.1)
 - 📝 **Update diff preview** — before/after comparison before committing (v1.4)
 - 🎨 **Flexible section structure** — required + recommended + optional sections (v1.4)
 - 📏 **Metric realism** — scale-appropriate numbers for 3-year DA level (v1.4)
@@ -27,23 +32,23 @@ Upload projects to Notion with optimized portfolio templates and auto-captured s
 - 👥 Collaboration & Impact section (v1.2+)
 - 📊 Statistical Validation for analysis projects (v1.2+)
 - 📁 Dataset section for data transparency (v1.1+)
-- 📝 14 property fields auto-populated
+- 📝 16 property fields auto-populated (Approach, Challenge 신규)
 - 🏷️ Tech stack tagging & glow color selection
 - 🏷️ Tech stack tagging & glow color selection
 
 **Templates**:
 - Type 1: Business Impact (Before/After, ROI, metrics, collaboration, deployment)
 - Type 2: Exploratory Analysis (EDA, findings, statistical validation, insights)
+- Type 3: Product Development (웹앱/모바일앱/게임/SaaS, Feature Showcase, UX Metrics)
 - Type 4: Learning Project (Kaggle, courses, practice, reflection)
+- Type 5: Automation & Tools (봇/파이프라인/크롤러, Workflow Design, Efficiency Gains)
 
-**What's New in v1.4.0**:
-- 📂 **File Structure Overhaul** — `templates.md` (2,390줄) → 6개 분리 파일 (타입별 템플릿 + 가이드)
-- ⚡ **Conditional Loading** — 업로드 시 해당 타입 파일만 로딩 (토큰 75% 절감)
-- 🔧 **Flexible Sections** — 필수+권장+선택 구조로 프로젝트별 차별화
-- 📊 **Portfolio Balance Check** — 타입/스택/색상 분포 자동 분석
-- 📝 **Update Diff Preview** — 변경사항 미리보기 후 확인
-- 📏 **Metric Realism** — 3년차 DA 수준에 맞는 현실적 수치 가이드
-- 🐛 **Bug Fixes** — Type 3 잔재, 중복 섹션, 코드블록 길이 모두 수정
+**What's New in v2.0.0**:
+- 🆕 **Type 3: Product Development** — 웹앱/모바일앱/게임/SaaS 전용 템플릿 신규 추가
+- 🆕 **Type 5: Automation & Tools** — 봇/파이프라인/크롤러/CLI 전용 템플릿 신규 추가
+- 🔧 **SKILL.md 전면 리팩토링** — 393줄 → 197줄 (50% 감소, 토큰 최적화)
+- 📸 **Screenshot Guide 분리** — `references/guides/screenshot-guide.md`로 외부화
+- 📋 **Extra-Label Guide 업데이트** — Type 3/5 전용 라벨 템플릿 추가
 
 **What's New in v1.4.0**:
 - 📂 **File Structure Overhaul** — `templates.md` (2,390줄) → 6개 분리 파일 (타입별 템플릿 + 가이드)
@@ -181,6 +186,13 @@ Database ID: ce6722a9-00b2-4d0e-8eda-190f4ce97cb6
 
 ## Version History
 
+### v2.0.0 (2026.02.27) - 5-Type System
+- 🆕 **Type 3: Product Development** — 웹앱/모바일앱/게임/SaaS 전용 템플릿 신규 추가
+- 🆕 **Type 5: Automation & Tools** — 봇/파이프라인/크롤러/CLI 전용 템플릿 신규 추가
+- 🔧 SKILL.md 전면 리팩토링 (393줄 → 197줄, 50% 절감)
+- 📸 Screenshot Guide를 `references/guides/screenshot-guide.md`로 분리
+- 📋 Extra-Label Guide에 Type 3/5 전용 라벨 추가
+
 ### v1.2.0 (2026.02.11) - Major Improvements
 - ✨ Added **Collaboration & Impact** section (Type 1/2/3)
   - Show stakeholder interaction
@@ -221,7 +233,7 @@ Database ID: ce6722a9-00b2-4d0e-8eda-190f4ce97cb6
 
 ## Roadmap
 
-**v1.3.0 (Planned)**
+**v2.1.0 (Planned)**
 - [ ] Multi-language support (English templates)
 - [ ] Custom template creation
 - [ ] Batch upload support

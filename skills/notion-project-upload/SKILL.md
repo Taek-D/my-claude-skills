@@ -1,18 +1,51 @@
 ---
 name: notion-project-upload
-description: "Notion 프로젝트 데이터베이스에 프로젝트를 업로드/업데이트하는 스킬. Claude Code 환경 전용. 트리거: 프로젝트 업로드, 프로젝트 업데이트, 노션 프로젝트, 포트폴리오 업로드, README 기반 업로드, 프로젝트 DB 등록. 사용자의 프로젝트 폴더(README.md, CLAUDE.md 등)를 분석하여 Problem/Solution/Impact/Learning/기술스택/글로우색상/한줄설명/상세제목/Extra/Extra-Label을 자동 추출하고 Notion DB에 생성 또는 업데이트한다. 프로젝트 업로드, 프로젝트 수정, 포트폴리오 관리라는 키워드가 보이면 반드시 이 스킬을 사용할 것."
+description: "Notion 프로젝트 데이터베이스에 프로젝트를 업로드/업데이트하는 스킬. Claude Code 환경 전용. 트리거: 프로젝트 업로드, 프로젝트 업데이트, 노션 프로젝트, 포트폴리오 업로드, README 기반 업로드, 프로젝트 DB 등록. 사용자의 프로젝트 폴더(README.md, CLAUDE.md 등)를 분석하여 Problem/Approach/Solution/Challenge/Result/Learning/기술스택/글로우색상/한줄설명/상세제목/Extra/Extra-Label을 자동 추출하고 Notion DB에 생성 또는 업데이트한다. 프로젝트 업로드, 프로젝트 수정, 포트폴리오 관리라는 키워드가 보이면 반드시 이 스킬을 사용할 것."
 ---
 
 # Notion Project Upload
 
 Upload or update projects in Notion portfolio database with optimized, recruiter-friendly templates.
 
-**Version**: 2.0.0
+**Version**: 3.0.0
 
 ## Database Configuration
 
 - **Data Source ID**: `ce6722a9-00b2-4d0e-8eda-190f4ce97cb6`
 - **Database URL**: https://www.notion.so/3249e5d70c6c4fbebe400ee3d8d2d4c7
+
+## Portfolio Structure: PACRL Framework
+
+모든 프로젝트는 아래 6단계 서술 구조를 따른다:
+
+| 필드 | 역할 | 핵심 질문 |
+|------|------|-----------|
+| **Problem** | 배경 + 문제 정의 | 왜 이게 문제인가? |
+| **Approach** | 방법 선택 근거 | 왜 이 방법인가? 다른 대안은 왜 아닌가? |
+| **Solution** | 구현 내용 | 어떻게 해결했는가? |
+| **Challenge** | 시행착오 | 어떤 어려움이 있었고 어떻게 극복했는가? |
+| **Result** | 정량 성과 | 수치로 무엇이 달라졌는가? |
+| **Learning** | 인사이트 | 이 경험에서 무엇을 배웠는가? |
+
+> ⚠️ **Approach와 Challenge가 핵심 차별점이다.** 대부분의 포트폴리오는 Problem → Solution → Result만 있다.
+> Approach(왜 이 방법?)와 Challenge(시행착오)를 채울 때 가장 강력한 포트폴리오가 된다.
+
+### PACRL 진단 체크리스트
+
+각 프로젝트 업로드 전 아래 항목이 채워졌는지 확인:
+
+```
+☐ Problem   — 배경 + 왜 이게 문제인지 설득 가능한가?
+☐ Approach  — 왜 이 방법을 선택했는지 근거(데이터, 리서치, 벤치마킹)가 있는가?
+☐ Solution  — 구현 내용이 구체적인가?
+☐ Challenge — A시도 → B시도 피벗 등 시행착오가 포함됐는가?
+☐ Result    — 정량 수치가 있는가? (없으면 정성적 변화라도)
+☐ Learning  — 이 프로젝트로 무엇을 체득했는지 명시됐는가?
+```
+
+빈 항목은 README/CLAUDE.md에서 단서를 찾거나, 사용자에게 질문하여 채운다.
+
+---
 
 ## Project Type Detection
 
@@ -27,6 +60,8 @@ Analyze content and classify into one of 5 types:
 | **5. Automation & Tools** | 봇, 자동화, 파이프라인, 크롤링, CLI, 스케줄러, 모니터링 | Workflow diagram, efficiency gains, system design |
 
 **Default**: 정량 지표 있으면 Type 1, 앱/서비스면 Type 3, 자동화면 Type 5, 없으면 Type 2.
+
+---
 
 ## Workflow
 
@@ -45,9 +80,9 @@ Type 5 → references/type5-template.md
 필요 시에만 추가 가이드 참조:
 ```
 Mermaid 다이어그램 → references/guides/mermaid-guide.md
-Extra-Label 작성 → references/guides/extra-label-guide.md
-차별화 전략 → references/guides/differentiation-guide.md
-스크린샷 캡처 → references/guides/screenshot-guide.md
+Extra-Label 작성  → references/guides/extra-label-guide.md
+차별화 전략       → references/guides/differentiation-guide.md
+스크린샷 캡처     → references/guides/screenshot-guide.md
 ```
 
 ### Step 2: Portfolio Balance Check (업로드 전 자동 실행)
@@ -60,6 +95,7 @@ Extra-Label 작성 → references/guides/extra-label-guide.md
 3. **글로우 색상**: 3개 이상 다른 색상 권장
 4. **섹션 구조**: 프로젝트 간 구조가 80%+ 동일하면 경고
 5. **수치 스케일**: 프로젝트 간 임팩트 규모 일관성
+6. **PACRL 완성도**: Approach, Challenge 필드가 빈 프로젝트 수 확인
 
 **출력 형식**:
 ```
@@ -67,11 +103,23 @@ Extra-Label 작성 → references/guides/extra-label-guide.md
 ⚠️ Product Development(Type 3) 프로젝트가 없습니다.
 ✅ Type 분포 OK (Type 1: 2개, Type 2: 1개, Type 5: 1개)
 ✅ 글로우 색상 3종 사용 중 (teal, amber, purple)
+⚠️ Approach 필드 미작성 프로젝트: 3개 (소급 보완 권장)
 ```
 
-### Step 3: Generate Content
+### Step 3: PACRL 진단 및 콘텐츠 생성
 
-템플릿 기반으로 콘텐츠 생성. 아래 규칙 준수.
+README/CLAUDE.md를 분석하여 6개 필드를 채운다.
+
+**Approach 작성 가이드**:
+- 왜 이 방법을 선택했는가? 근거(데이터, 리서치, 벤치마킹)를 포함
+- 다른 대안(라이브러리, 방법론, 아키텍처)은 왜 배제했는가?
+- 예: "초기에는 X를 검토했으나 Y 이유로 Z를 선택했다"
+
+**Challenge 작성 가이드**:
+- A시도 → 실패 → B시도 피벗 과정을 서술
+- 기술적 난관, 데이터 품질 문제, 설계 변경 등 포함
+- 실패 사례도 OK — 면접관은 시행착오를 높이 평가한다
+- 예: "초기 모델 MAPE 18%로 목표 미달 → feature engineering 재설계 후 11.3% 달성"
 
 ### Step 4: Screenshot Capture (자동)
 
@@ -83,16 +131,21 @@ Extra-Label 작성 → references/guides/extra-label-guide.md
 **신규**: Notion DB에 새 페이지 생성
 **업데이트**: 기존 페이지 수정 + Diff 프리뷰 표시
 
+---
+
 ## Update Diff Preview (업데이트 시 필수)
 
 ```
 📝 변경 사항 프리뷰
 - [수정] Problem: "데이터 부족" → "12만 건 데이터에서 패턴 미발견"
-- [추가] Statistical Validation 섹션 신규
+- [추가] Approach: 왜 Prophet을 선택했는지 근거 추가
+- [추가] Challenge: MAPE 18% → 11.3% 피벗 과정 추가
 - [유지] Performance Overview (변경 없음)
-- [수정] 업데이트 날짜: 2026.02.11 → 2026.02.27
+- [수정] 업데이트 날짜: 2026.02.11 → 2026.03.06
 진행할까요? (Y/N)
 ```
+
+---
 
 ## Section Structure (유연한 구조)
 
@@ -102,8 +155,8 @@ Extra-Label 작성 → references/guides/extra-label-guide.md
 - **Links** — 하단
 
 ### 권장 섹션 (프로젝트 특성에 따라 2-3개 선택)
-- Problem & Root Cause / Data & Methodology / Findings / Collaboration & Impact
-- Statistical Validation / Deployment & Usage
+- Problem & Root Cause / Why This Approach / Data & Methodology
+- Findings / Collaboration & Impact / Statistical Validation / Deployment & Usage
 - Feature Showcase / Architecture & System Design (Type 3)
 - Workflow & Automation / Efficiency Gains (Type 5)
 
@@ -111,14 +164,16 @@ Extra-Label 작성 → references/guides/extra-label-guide.md
 - A/B Test / Error Analysis / Real-world Application
 - User Feedback & Metrics (Type 3) / Monitoring & Observability (Type 5)
 
-### 프로젝트별 차별화 예시
+### 타입별 섹션 흐름 예시
 ```
-Type 1: Overview → Problem → A/B Test → Impact → Takeaways
-Type 2: Overview → Methodology → Findings → Collaboration → Takeaways
-Type 3: Overview → Feature Showcase → Architecture → User Metrics → Takeaways
-Type 4: Overview → Learning Goal → Competition → Before/After → Reflection
-Type 5: Overview → Workflow Design → System Architecture → Efficiency → Takeaways
+Type 1: Overview → Problem → Why This Approach → A/B Test → Challenge → Impact → Takeaways
+Type 2: Overview → Problem → Methodology → Why This Approach → Findings → Challenge → Takeaways
+Type 3: Overview → Problem → Why This Approach → Feature Showcase → Challenge → User Metrics → Takeaways
+Type 4: Overview → Learning Goal → Why This Approach → Competition → Challenge → Before/After → Reflection
+Type 5: Overview → Problem → Why This Approach → Workflow Design → Challenge → Efficiency → Takeaways
 ```
+
+---
 
 ## Metric Guidelines (수치 현실성)
 
@@ -134,15 +189,19 @@ Type 5: Overview → Workflow Design → System Architecture → Efficiency → 
 
 **⚠️ 절대 금지**: ROI 1,000%+ / 연 수억 원 임팩트 / 120K+ 유저 데이터 without context
 
+---
+
 ## Language Rules
 
 | 요소 | 언어 | 이유 |
 |------|------|------|
 | 섹션 제목 | Emoji + English | 글로벌 가독성 |
 | 본문 | 한국어 | 타겟 채용시장 |
-| Property 값 | 한국어 | Problem, Solution, Impact, Learning |
+| Property 값 | 한국어 | Problem, Approach, Solution, Challenge, Result, Learning |
 | Extra-Label | 영어 대문자 | 카드 UI 가독성 |
 | 기술 용어 | 영어 원문 유지 | XGBoost, A/B Test, ROI |
+
+---
 
 ## Design Rules
 
@@ -153,13 +212,17 @@ Type 5: Overview → Workflow Design → System Architecture → Efficiency → 
 - **Mermaid diagrams**: 3-5단계 간소화
 - **Quantitative metrics**: **볼드** 처리
 
-## Properties (14 Fields)
+---
+
+## Properties (16 Fields)
 
 | Property | Format / Description |
 |----------|---------------------|
-| **Problem** | 문제 정의 (2-3문장, 비즈니스 맥락 포함) |
-| **Solution** | 해결 방법 (번호 매기기) |
-| **Impact** | 성과 (정량/정성, 현실적 스케일) |
+| **Problem** | 배경 + 문제 정의 (2-3문장, 비즈니스 맥락 포함) |
+| **Approach** | 왜 이 방법을 선택했는가 (근거, 대안 검토 포함) ✨신규 |
+| **Solution** | 구현 내용 (번호 매기기, 어떻게 해결했는가) |
+| **Challenge** | 시행착오, A→B 피벗, 기술적 난관 ✨신규 |
+| **Result** | 정량/정성 성과 (현실적 스케일) |
 | **Learning** | 학습 내용 및 회고 |
 | **프로젝트명** | 이모지 + 프로젝트명 (한국어) |
 | **상세제목** | 영문 또는 한글 상세 제목 |
@@ -167,13 +230,18 @@ Type 5: Overview → Workflow Design → System Architecture → Efficiency → 
 | **기술스택** | 배열 태그 (Python, Tableau, LangChain, etc.) |
 | **카테고리** | 데이터 분석 / AI & Automation / 웹 개발 등 |
 | **글로우색상** | teal(분석), amber(자동화), red(비즈니스), purple(AI/ML), pink(시각화) |
-| **Extra-Label** | 영어 대문자 섹션 제목 (e.g., "A/B TEST DESIGN") |
+| **Extra-Label** | 영어 대문자 섹션 제목 (e.g., "WHY THIS APPROACH") |
 | **Extra** | `**제목** — 설명` 형식 (마크다운 볼드) |
 | **업데이트 날짜** | YYYY.MM.DD (오늘 날짜 자동) |
+| **진행기간** | YYYY.MM ~ YYYY.MM |
+
+---
 
 ## Tech Stack Tags
 
 Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, BigQuery, PostgreSQL, MySQL, LangChain, OpenAI API, FAISS, RAG, Streamlit, Flask, FastAPI, Playwright, Selenium, JavaScript, React, Node.js, Google Sheets, Looker Studio, Discord API, GitHub Actions, Vercel
+
+---
 
 ## Quality Checklist
 
@@ -183,6 +251,8 @@ Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, BigQuery, Po
 - ✅ **다른 프로젝트와 섹션 구조가 다른가?**
 - ✅ 코드 블록이 10-15줄 이내인가?
 - ✅ 수치가 현실적 스케일인가?
-- ✅ 14개 properties 전부 채워졌는가?
+- ✅ 16개 properties 전부 채워졌는가?
 - ✅ Extra/Extra-Label이 채워졌는가?
+- ✅ **Approach 필드: 왜 이 방법인지 근거가 있는가?** ✨
+- ✅ **Challenge 필드: 시행착오/피벗 과정이 포함됐는가?** ✨
 - ✅ Type별 필수 요소: Before/After(1), 통계검증(2), Demo/Feature(3), Reflection(4), Workflow(5)

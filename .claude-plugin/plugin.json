@@ -1,7 +1,7 @@
 {
   "name": "notion-project-upload",
-  "version": "2.0.0",
-  "description": "Upload projects to Notion with optimized 5-type portfolio templates (Business/Analysis/Product/Learning/Automation) and auto-captured screenshots.",
+  "version": "2.1.0",
+  "description": "Upload projects to Notion with optimized 5-type portfolio templates. PACRL framework (Problem/Approach/Solution/Challenge/Result/Learning) and auto-captured screenshots.",
   "author": {
     "name": "Taek-D"
   },

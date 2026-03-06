@@ -44,10 +44,15 @@
 • 성공 기준 (어떤 인사이트를 찾으면 성공인지)
 ```
 
-### Option B: Data & Methodology
+### Option B: Approach & Data & Methodology
 
 ```markdown
-## 📊 Data & Methodology
+## 📊 Approach & Data & Methodology
+
+**Why This Method** ← Approach 필드 반영
+
+• 왜 이 분석 방법을 선택했는가 (대안 방법 검토 결과)
+• 다른 방법을 검토했지만 선택하지 않은 이유
 
 **Data Sources**
 

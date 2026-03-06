@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-03-06
+
+### Changed
+
+#### 포트폴리오 서술 구조 개선 (PACRL 프레임워크)
+- **Problem → Approach → Solution → Challenge → Result → Learning** 구조로 개편
+- 채용담당자가 가장 보고 싶어하는 "왜 이 방법?"과 "시행착오"를 필드로 명시화
+- `Impact` 필드 → `Result` 로 이름 변경 (노션 DB 반영 완료)
+- `Approach` 필드 신규 추가: 왜 이 방법을 선택했는가 (근거, 대안 검토)
+- `Challenge` 필드 신규 추가: 시행착오, A→B 피벗, 실패 케이스
+- Properties 수: 14개 → 16개
+- Quality Checklist에 Approach/Challenge 검증 항목 추가
+
+---
+
 ## [2.0.0] - 2026-02-27
 
 ### Added

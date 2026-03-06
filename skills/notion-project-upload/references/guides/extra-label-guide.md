@@ -11,6 +11,8 @@
 | Extra-Label | 사용 시점 |
 |-------------|----------|
 | **A/B TEST DESIGN** | A/B 테스트 수행 시 (필수) |
+| **APPROACH & DECISION** | 왜 이 분석 방법/모델을 선택했는가 (대안 비교) |
+| **CHALLENGE & PIVOT** | 시행착오, A→B 피벗 상세 |
 | **PERFORMANCE OPTIMIZATION** | 성능 개선 프로젝트 |
 | **DEPLOYMENT STRATEGY** | 배포 전략이 복잡한 경우 |
 | **COST ANALYSIS** | 비용 절감이 주요 성과 |
@@ -19,6 +21,8 @@
 | Extra-Label | 사용 시점 |
 |-------------|----------|
 | **HYPOTHESIS TESTING FRAMEWORK** | 가설 검증 프로젝트 |
+| **APPROACH & DECISION** | 왜 이 분석 방법을 선택했는가 (대안 검토) |
+| **CHALLENGE & PIVOT** | 데이터 품질 문제, 분석 방향 변경 등 시행착오 |
 | **DATA DETAILS** | 데이터 규모/품질이 중요할 때 |
 | **STATISTICAL VALIDATION** | 통계적 검증 강조 |
 | **SEGMENTATION ANALYSIS** | 세그먼트별 분석 수행 시 |
@@ -27,6 +31,8 @@
 | Extra-Label | 사용 시점 |
 |-------------|----------|
 | **TECH STACK DECISIONS** | 기술 선택 이유가 중요할 때 |
+| **APPROACH & DECISION** | 왜 이 스택/아키텍쳐를 선택했는가 |
+| **CHALLENGE & PIVOT** | 구현 중 마주한 기술적 난관, 피벗 사례 |
 | **FEATURE SPEC** | 핵심 기능 상세 스펙 |
 | **USER FLOW** | 사용자 여정이 복잡할 때 |
 | **PERFORMANCE METRICS** | Lighthouse, FCP, 번들 사이즈 등 |
@@ -36,6 +42,8 @@
 | Extra-Label | 사용 시점 |
 |-------------|----------|
 | **LEARNING JOURNEY** | 학습 과정 타임라인 |
+| **APPROACH & DECISION** | 왜 이 강의/데이터셋을 선택했는가 |
+| **CHALLENGE & PIVOT** | 학습 중 마주한 난관, 전략 변경 |
 | **BEFORE/AFTER SKILLS** | 역량 변화 |
 | **REAL-WORLD APPLICATION** | 실무 적용 계획 |
 | **EXPERIMENT DESIGN** | 실험적 시도 |
@@ -44,6 +52,8 @@
 | Extra-Label | 사용 시점 |
 |-------------|----------|
 | **WORKFLOW DESIGN** | 자동화 흐름이 핵심일 때 |
+| **APPROACH & DECISION** | 왜 이 자동화 도구(Playwright/cron/n8n)를 선택했는가 |
+| **CHALLENGE & PIVOT** | 크롤링 레이아웃 변경, 에러 패턴 등 시행착오 |
 | **ERROR HANDLING STRATEGY** | 에러 처리가 복잡한 경우 |
 | **SCHEDULING CONFIG** | 스케줄링 설계가 중요할 때 |
 | **SYSTEM ARCHITECTURE** | 여러 컴포넌트 연동 시 |

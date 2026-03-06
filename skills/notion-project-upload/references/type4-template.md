@@ -28,7 +28,7 @@
 
 ## 권장 섹션 (프로젝트에 맞게 2-3개 선택)
 
-### Option A: Learning Goal
+### Option A: Learning Goal + Approach
 
 ```markdown
 ## 🎓 Learning Goal
@@ -36,6 +36,11 @@
 **Why I Started**
 
 실무에서 느낀 니즈, 현재 역량의 한계, 학습 동기를 커리어 목표와 연결해서 서술
+
+**Why This Resource/Method** ← Approach 필드 반영
+
+• 왜 이 강의/데이터셋/컴피티션을 선택했는가
+• 다른 대안 검토 결과 (다른 강의, 다른 데이터셋 등)
 
 **Goals**
 

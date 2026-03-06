@@ -29,7 +29,7 @@
 
 ## 권장 섹션 (프로젝트에 맞게 2-3개 선택)
 
-### Option A: Problem & Motivation
+### Option A: Problem & Motivation + Approach
 
 ```markdown
 ## 🔍 Problem & Motivation
@@ -38,6 +38,11 @@
 
 • 어떤 문제를 해결하려고 만들었는지 (개인 페인포인트 or 시장 니즈)
 • 기존 대안과 비교했을 때 부족한 점
+
+**Why This Approach** ← Approach 필드 반영
+
+• 왜 이 기술 스택/아키텍쳐를 선택했는가
+• 검토했지만 선택하지 않은 대안 (e.g. Next.js vs Vite, Supabase vs Firebase)
 
 **Target User**
 
