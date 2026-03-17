@@ -182,27 +182,20 @@ Or save it to Claude's memory permanently:
 - ✅ Deployment & Usage (Type 1/3)
 
 ### Type 1: Business Impact Project
-**[배달 시간 예측 모델 개선으로 고객 만족도 향상](examples/type1-delivery-prediction.md)**
-- XGBoost 기반 배달 시간 예측, MAE 15.2분→6.8분 (-55%)
-- 월 환불 비용 ₩1.1M 절감, CSAT 3.8→4.3
-**[배달 시간 예측 모델 개선으로 고객 만족도 향상](examples/type1-delivery-prediction.md)**
+**[배달 시간 예측 모델 개선으로 고객 만족도 향상](references/examples/type1-delivery-prediction.md)**
 - XGBoost 기반 배달 시간 예측, MAE 15.2분→6.8분 (-55%)
 - 월 환불 비용 ₩1.1M 절감, CSAT 3.8→4.3
 - Redis 캐싱, Feature Engineering, A/B 테스트
 
 ### Type 2: Exploratory/Analysis Project
-**[구독 서비스 이탈 패턴 분석으로 리텐션 전략 수립](examples/type2-churn-analysis.md)**
-- 2만 사용자 코호트 분석, 3가지 핵심 이탈 요인 발견
-- 30일 리텐션 62%→70% (+8%p), 연 ₩28.8M 수익 보전
+**[구독 서비스 이탈 패턴 분석으로 리텐션 전략 수립](references/examples/type2-churn-analysis.md)**
 - 2만 사용자 코호트 분석, 3가지 핵심 이탈 요인 발견
 - 30일 리텐션 62%→70% (+8%p), 연 ₩28.8M 수익 보전
 - Hypothesis Testing, Kaplan-Meier, Logistic Regression
 
 ### Type 4: Learning Project
-**[Kaggle Tabular Playground Series - Time Series Forecasting 학습](examples/type4-kaggle-learning.md)**
+**[Kaggle Tabular Playground Series - Time Series Forecasting 학습](references/examples/type4-kaggle-learning.md)**
 - Prophet, XGBoost, LSTM 앙상블, RMSE 0.237
-- 3,200명 중 상위 12% (384등), Bronze Medal
-- 87시간 투자, 실무 적용 계획 포함
 - 3,200명 중 상위 12% (384등), Bronze Medal
 - 87시간 투자, 실무 적용 계획 포함
 
