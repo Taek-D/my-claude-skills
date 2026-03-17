@@ -1,13 +1,12 @@
-# My Claude Skills
+# notion-project-upload
 
-Custom Claude Code skills for personal productivity and automation.
+> A Claude skill to upload and update your projects in a Notion portfolio database — auto-detects project type, applies recruiter-friendly templates, and populates 16 properties using the **PACRL framework**.
 
-## Skills
+[![Version](https://img.shields.io/badge/version-2.1.0-blue)](https://github.com/Taek-D/my-claude-skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Claude Pro Required](https://img.shields.io/badge/Claude-Pro%20%2F%20Max%20%2F%20Team-blueviolet)](https://claude.ai)
 
-### notion-project-upload
-
-**Version**: 2.1.0  
-**Category**: Productivity
+---
 
 Upload projects to Notion with optimized portfolio templates and auto-captured screenshots. Automatically analyzes project type (business/analysis/product/learning/automation), applies recruiter-friendly templates, and captures portfolio-optimized screenshots.
 
@@ -89,23 +88,81 @@ Upload projects to Notion with optimized portfolio templates and auto-captured s
 - 💻 **Better Code Blocks** - 15-20 lines (up from 10)
 - 🎯 **Business Context** - Always explain "why this matters"
 
+## Prerequisites
+
+- **Claude Pro, Max, Team, or Enterprise** plan
+- **Code Execution enabled** in Claude settings (Settings → Feature Preview → Code Execution)
+- **Notion MCP** connected in Claude settings
+- A Notion database with the [required properties](#notion-database-setup)
+
 ## Installation
 
 ### Via Claude Code Marketplace (Recommended)
 
 ```bash
 # In Claude Code CLI
-/install-skill https://github.com/Taek-D/my-claude-skills
+/plugin marketplace add Taek-D/my-claude-skills
+/plugin install notion-project-upload@Taek-D/my-claude-skills
 ```
 
 ### Manual Installation
 
 ```bash
-# Clone repository
 git clone https://github.com/Taek-D/my-claude-skills.git
-
-# Copy to Claude Code skills directory
 cp -r my-claude-skills/skills/* ~/.claude/skills/
+```
+
+---
+
+## Notion Database Setup
+
+### Step 1: Create a Notion database
+
+Create a new database (full-page or inline) in your Notion workspace.
+
+### Step 2: Add required properties
+
+| Property Name | Type | Notes |
+|---------------|------|-------|
+| `프로젝트명` | Title | Main project name |
+| `Problem` | Text | Problem definition |
+| `Approach` | Text | Why this method? |
+| `Solution` | Text | Implementation details |
+| `Challenge` | Text | Obstacles & pivots |
+| `Result` | Text | Quantified outcomes |
+| `Learning` | Text | Key takeaways |
+| `상세제목` | Text | Detailed subtitle |
+| `한줄설명` | Text | One-line summary |
+| `기술스택` | Multi-select | Python, SQL, etc. |
+| `카테고리` | Select | Project category |
+| `글로우색상` | Select | teal / amber / red / purple / pink |
+| `Extra-Label` | Text | e.g. "A/B TEST DESIGN" |
+| `Extra` | Text | Additional details |
+| `업데이트 날짜` | Text | Format: YYYY.MM.DD |
+| `진행기간` | Text | Format: YYYY.MM ~ YYYY.MM |
+
+### Step 3: Get your Database ID
+
+Copy your Notion database URL. The ID is the string before the `?`:
+```
+https://www.notion.so/YOUR_WORKSPACE/[DATABASE_ID]?v=...
+                                      ↑ this part
+```
+
+### Step 4: Connect Notion MCP
+
+In Claude, go to **Settings → Integrations** and enable the **Notion MCP** connector. Authorize access to your workspace.
+
+### Step 5: Tell Claude your DB ID
+
+You can provide it per-session:
+```
+"노션에 업로드해줘. DB ID는 [YOUR_DATABASE_ID]야"
+```
+
+Or save it to Claude's memory permanently:
+```
+"Remember: My Notion portfolio DB ID is [YOUR_DATABASE_ID]"
 ```
 
 ---
@@ -178,11 +235,18 @@ The skill will:
 
 ## Configuration
 
-Set your Notion database ID in user memories or provide it when uploading:
+Set your Notion database ID in Claude's user memory for persistent use:
 
 ```
-Database ID: ce6722a9-00b2-4d0e-8eda-190f4ce97cb6
+"Remember: My Notion portfolio DB ID is [YOUR_DATABASE_ID]"
 ```
+
+Or provide it inline at upload time:
+```
+"노션에 업로드해줘. DB ID는 [YOUR_DATABASE_ID]야"
+```
+
+> 💡 See [Notion Database Setup](#notion-database-setup) for how to find your DB ID and create the required properties.
 
 ## Version History
 
@@ -233,7 +297,7 @@ Database ID: ce6722a9-00b2-4d0e-8eda-190f4ce97cb6
 
 ## Roadmap
 
-**v2.1.0 (Planned)**
+**v2.2.0 (Planned)**
 - [ ] Multi-language support (English templates)
 - [ ] Custom template creation
 - [ ] Batch upload support
