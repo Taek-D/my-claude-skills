@@ -1,13 +1,13 @@
 ---
 name: notion-project-upload
-description: "Notion 프로젝트 데이터베이스에 프로젝트를 업로드/업데이트하는 스킬. Claude Code 환경 전용. 트리거: 프로젝트 업로드, 프로젝트 업데이트, 노션 프로젝트, 포트폴리오 업로드, README 기반 업로드, 프로젝트 DB 등록. 사용자의 프로젝트 폴더(README.md, CLAUDE.md 등)를 분석하여 Problem/Approach/Solution/Challenge/Result/Learning/기술스택/글로우색상/한줄설명/상세제목/Extra/Extra-Label을 자동 추출하고 Notion DB에 생성 또는 업데이트한다. 프로젝트 업로드, 프로젝트 수정, 포트폴리오 관리라는 키워드가 보이면 반드시 이 스킬을 사용할 것."
+description: "Notion 프로젝트 데이터베이스에 프로젝트를 업로드/업데이트하는 스킬. 트리거: 프로젝트 업로드, 노션에 올려줘, 프로젝트 등록, 포트폴리오 업로드, 프로젝트 DB 등록. 직군 무관하게 프로젝트 내용을 최대한 상세하게 기록한다. Notion을 프로젝트 원장 DB로 활용하며, 나중에 어떤 직무 포트폴리오를 만들어도 여기서 꺼내 쓸 수 있도록 팩트를 완전하게 보존한다."
 ---
 
-# Notion Project Upload
+# Notion Project Upload — v2.3.0
 
-Upload or update projects in Notion portfolio database with optimized, recruiter-friendly templates.
-
-**Version**: 3.0.0
+> **Notion = 프로젝트 원장 DB**
+> 직군 색 없이 팩트를 최대한 상세하게 기록한다.
+> 포트폴리오 작성은 별도로 진행한다.
 
 ## Database Configuration
 
@@ -65,24 +65,23 @@ Analyze content and classify into one of 5 types:
 
 ## Workflow
 
-### Step 1: Read Template
+### Step 1: 타입별 권장 섹션 결정
 
-타입 감지 후 해당 템플릿 파일만 읽기 (전체 읽기 금지):
+타입 감지 후 아래 힌트를 참고해 섹션을 구성한다. 외부 파일 참조 불필요.
 
-```
-Type 1 → references/type1-template.md
-Type 2 → references/type2-template.md
-Type 3 → references/type3-template.md
-Type 4 → references/type4-template.md
-Type 5 → references/type5-template.md
-```
+| Type | 강화할 섹션 |
+|------|-----------|
+| 1. Impact | Before/After 테이블, A/B Test, 비용·시간 절감 정량화 |
+| 2. Analysis | 방법론, 데이터 출처, 가설-검증-결과, 핵심 발견 |
+| 3. Product | 기능 목록, 아키텍처, UX 플로우, 사용자 가치 |
+| 4. Learning | 학습 목표, Before/After 역량, 실무 적용 계획 |
+| 5. Automation | 워크플로우 다이어그램, 에러 처리, 효율화 수치 |
 
-필요 시에만 추가 가이드 참조:
+필요 시만 가이드 참조:
 ```
-Mermaid 다이어그램 → references/guides/mermaid-guide.md
-Extra-Label 작성  → references/guides/extra-label-guide.md
-차별화 전략       → references/guides/differentiation-guide.md
-스크린샷 캡처     → references/guides/screenshot-guide.md
+Mermaid  → references/guides/mermaid-guide.md
+스크린샷 → references/guides/screenshot-guide.md
+예시     → references/examples/project-record-example.md
 ```
 
 ### Step 2: Portfolio Balance Check (업로드 전 자동 실행)
@@ -239,7 +238,7 @@ Type 5: Overview → Problem → Why This Approach → Workflow Design → Chall
 
 ## Tech Stack Tags
 
-Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, BigQuery, PostgreSQL, MySQL, LangChain, OpenAI API, FAISS, RAG, Streamlit, Flask, FastAPI, Playwright, Selenium, JavaScript, React, Node.js, Google Sheets, Looker Studio, Discord API, GitHub Actions, Vercel
+Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, BigQuery, PostgreSQL, MySQL, LangChain, OpenAI API, FAISS, RAG, Streamlit, Flask, FastAPI, Playwright, Selenium, JavaScript, React, Node.js, Google Sheets, Looker Studio, Discord API, Slack API, GitHub Actions, Vercel, Amplitude, Mixpanel, Google Analytics (GA4), Firebase, Figma, Jira, Confluence, Notion, Power Automate, Excel, Miro, Lucidchart
 
 ---
 
@@ -256,3 +255,4 @@ Python, Pandas, NumPy, Matplotlib, Seaborn, Tableau, Power BI, SQL, BigQuery, Po
 - ✅ **Approach 필드: 왜 이 방법인지 근거가 있는가?** ✨
 - ✅ **Challenge 필드: 시행착오/피벗 과정이 포함됐는가?** ✨
 - ✅ Type별 필수 요소: Before/After(1), 통계검증(2), Demo/Feature(3), Reflection(4), Workflow(5)
+- ✅ Result: 있는 수치 전부 기록했는가? (직군 필터 없이)
