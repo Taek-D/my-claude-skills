@@ -105,9 +105,49 @@ Mermaid  → references/guides/mermaid-guide.md
 ⚠️ Approach 필드 미작성 프로젝트: 3개 (소급 보완 권장)
 ```
 
-### Step 3: PACRL 진단 및 콘텐츠 생성
+### Step 3: 프로젝트 파일 수집 후 PACRL 진단
 
-README/CLAUDE.md를 분석하여 6개 필드를 채운다.
+#### 파일 수집 (우선순위 기반 선택 읽기)
+
+전체 폴더를 무조건 읽지 않는다. 아래 순서로 필요한 것만 읽는다.
+
+**1단계 — 폴더 구조 파악 (목록만, 읽기 아님)**
+```
+ls -1 프로젝트루트/     → 최상위 파일/폴더 목록 확인
+```
+이 결과로 어떤 파일이 있는지 파악하고 읽을 대상 결정.
+
+**2단계 — 항상 읽기 (핵심 문서)**
+```
+README.md       → 프로젝트 개요, 문제/해결/성과
+CLAUDE.md       → 설계 결정, 아키텍처, 개발 컨텍스트 (있으면)
+CLAUDE_DEV.md   → 개발 노트 (있으면)
+```
+
+**3단계 — 기술스택/환경 파악**
+```
+package.json          → 기술스택, 스크립트
+requirements.txt      → Python 의존성
+pyproject.toml        → Python 프로젝트 설정
+.env.example          → 사용 기술 파악용 (실제 .env 읽기 금지)
+```
+
+**4단계 — 조건부 읽기 (필요 시만)**
+```
+.git/logs/HEAD              → 진행기간 추출 (첫/마지막 커밋 날짜)
+docs/ 또는 architecture.*   → 설계 문서 (있으면)
+main.py / app.py / index.ts → 핵심 진입점 (README만으로 부족할 때)
+vercel.json / netlify.toml  → 배포 환경
+```
+
+**건너뛸 것 (읽지 않음)**
+```
+node_modules/  dist/  build/  __pycache__/
+.git/objects/  *.lock  테스트 파일  바이너리
+```
+
+> 수집한 파일들을 종합해서 PACRL 6개 필드를 채운다.
+> README만으로 충분하면 추가 파일 읽기 불필요.
 
 **Approach 작성 가이드**:
 - 왜 이 방법을 선택했는가? 근거(데이터, 리서치, 벤치마킹)를 포함
